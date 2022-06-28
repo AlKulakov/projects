@@ -1,0 +1,175 @@
+body {
+	background-color: rgb(64,64,64);
+    width: 100%;
+}
+.panel1 {
+	height: 12%;
+}
+.panel11 {
+	height: 10%;
+	width: 33%;
+	position: absolute;
+	left: 5%;
+	top: 15px;
+}
+.icon {
+	position: absolute;
+}
+.name {
+	position: absolute;
+	left: 20%;
+	top: 10px;
+	font-size: 24px;
+	color: white;
+	font-family: cursive;
+}
+.VK {
+	position: absolute;
+	left: 75%;
+	top: 6%;
+}
+.old {
+	position: absolute;
+	left: 78%;
+	top: 6%;
+}
+.panel12 {
+	position: absolute;
+	left: 85%;
+	top: 57px;
+	width: 200px;
+	height: 50px;
+	background-color: Green;
+	color: white;
+	text-align: center;
+	font-family: cursive;
+	font-size: 15px;
+	line-height: 50px;
+	border-radius: 20px;
+}
+.en {
+	position: absolute;
+	left: 72%;
+	top: 6%;
+}
+.panel2 {
+	position: absolute;
+	top:17%;
+	left:0;
+	background-color: rgb(32, 32, 32);
+	height: 50px;
+	width: 100%;
+}
+.hpanel {
+	position: relative;
+	left: 0px;
+	width: 14.286%;
+	background-color: rgb(32, 32, 32);
+	color: white;
+	text-align: center;
+	font-size: 18px;
+	line-height: 50px;
+	float: left;
+}
+.panel3 {
+	position: absolute;
+	top: 50px;
+	left:0;
+	width: 355px;
+	height: 756px;
+	border-bottom-style: double;
+	border-right-style: double;
+	border-color: rgb(32, 32, 32);
+	border-width: 10px;
+	border-radius: 0 0 50px 0;
+	background-color: rgb(128, 128, 128);
+
+}
+.vpanel {
+	position: relative;
+	left: 0px;
+	top: 5px;
+	width: 350px;
+	height: 35px;
+	background-color: rgb(86, 86, 86);
+	color: white;
+	text-align: center;
+	font-size: 16px;
+	float: bottom;
+	margin: 2px 0 2px 0;
+	border-radius: 10px;
+	padding-top: 15px;
+}
+.newspanel {
+	position: absolute;
+	left: 480px;
+	top: 75px;
+	background-color: rgb(86, 86, 86);
+	width: 680px;
+	border-radius:50px 50px 0 0;
+	border-color: black;
+	border-width: 10px;
+	border-style: double;
+	color: white;
+}
+.n1 {
+	border-width: 10px;
+	border-style: double;
+	border-color: black;
+	overflow: hidden;
+}
+.im1 {
+	width: 100%;
+	overflow: hidden;
+	image-rendering: crisp-edges;
+	margin: 20px 0 20px 0;
+}
+.text {
+	margin: 20px 20px 20px 20px;
+	text-indent: 30px;
+}
+h1 {
+	text-align: center;
+}
+h3 {
+	text-align: center;
+}
+.panel4 {
+	position: absolute;
+	top: 50px;
+	right:0px;
+	width: 355px;
+	height: 756px;
+	border-bottom-style: double;
+	border-left-style: double;
+	border-color: rgb(32, 32, 32);
+	border-width: 10px;
+	border-radius: 0 0 0 50px;
+	background-color: white;
+}
+
+.panel12:hover {
+	background-color: white;
+	color: DarkGreen;
+}
+.panel11:hover {
+	opacity: 0.5;
+}
+.VK:hover {
+	opacity: 0.5;
+}
+.old:hover {
+	opacity: 0.5;
+}
+.en:hover {
+	opacity: 0.5;
+}
+.hpanel:hover {
+	background-color: white;
+	color: rgb(32, 32, 32);
+}
+.vpanel:hover {
+	background-color: white;
+	color: rgb(86, 86, 86);
+	transform: scale(0.9);
+}
