@@ -15,7 +15,7 @@ int main()
 			      {10, 2, 5, 2, 3, 0}};
 	int d[SIZE];
 	int v[SIZE];
-	int temp, minindex, min;
+	int tmp, minindex, min;
 	int begin_index = 0;
 	for (int i = 0; i < SIZE; i++)
 	{
@@ -23,8 +23,8 @@ int main()
 		for (int j = i + 1; j < SIZE; j++) {
 			printf("Введите расстояние %d - %d: ", i + 1, j + 1);
 			scanf("%d", &temp);
-			a[i][j] = temp;
-			a[j][i] = temp;
+			a[i][j] = tmp;
+			a[j][i] = tmp;
 		}
 	}
 	for (int i = 0; i < SIZE; i++)
@@ -57,8 +57,8 @@ int main()
 			{
 				if (a[minindex][i] > 0)
 				{
-					temp = min + a[minindex][i];
-					if (temp < d[i])
+					tmp = min + a[minindex][i];
+					if (tmp < d[i])
 					{
 						d[i] = temp;
 					}
@@ -82,10 +82,10 @@ int main()
 		{
 			if (a[i][end] != 0)
 			{
-				int temp = weight - a[i][end];
-				if (temp == d[i])
+				int tmp = weight - a[i][end];
+				if (tmp == d[i])
 				{
-					weight = temp;
+					weight = tmp;
 					end = i;
 					ver[k] = i + 1;
 					k++;
