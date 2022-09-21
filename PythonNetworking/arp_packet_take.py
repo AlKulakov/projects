@@ -29,7 +29,7 @@ try:
         packets_amount+=2
         print("\r[+] Packets sent: ", str(packets_amount), end="")
         time.sleep(2)
-except KeyboardInterrupt:d
+except KeyboardInterrupt:
     print("\n[+] Program has been stopped, ARP tables will be reseted")
     restore(target_ip, router_ip)
     restore(router_ip, target_ip)
