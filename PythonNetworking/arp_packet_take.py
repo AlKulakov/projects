@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 import scapy.all as scapy
 import time
 import sys
@@ -29,6 +29,7 @@ def spoof(target_ip, spoof_ip):
 def restore(dst_ip, src_ip):
     packet = scapy.ARP(op=2, pdst=dst_ip, hwdst=get_mac_address(dst_ip), psrc=src_ip, hwsrc=get_mac_address(src_ip))
     scapy.send(packet, count=4, verbose=False)
+
 args = get_ips()
 target_ip = args.target
 router_ip = args.router
