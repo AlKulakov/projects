@@ -82,7 +82,7 @@ namespace C_Sharp
 	}
 	public void showtime()
 	{
-		Console.WriteLine(h + ":" + m + ":" + s);
+		Console.WriteLine("[-] " + h + ":" + m + ":" + s);
 	} 
     }	
     class Program

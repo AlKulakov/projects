@@ -75,21 +75,21 @@ public:
 		By = (Bx - Ax) * sin(ugol) + (By - Ay) * cos(ugol) + Ay;
 		Cx = (Cx - Ax) * cos(ugol) - (Cy - Ay) * sin(ugol) + Ax;
 		Cy = (Cx - Ax) * sin(ugol) + (Cy - Ay) * cos(ugol) + Ay;
-		cout << "Новые координаты вершин B, C : \n" << "B: (" << Bx << "," << By << ")\n" << "C: (" << Cx << "," << Cy << ")\n";
+		cout << "[-] Новые координаты вершин B, C : \n" << "B: (" << Bx << "," << By << ")\n" << "C: (" << Cx << "," << Cy << ")\n";
 	}
 	void povorotB(int ugol) {
 		Ax = (Ax - Bx) * cos(ugol) - (Ay - By) * sin(ugol) + Bx;
 		Ay = (Ax - Bx) * sin(ugol) + (Ay - By) * cos(ugol) + By;
 		Cx = (Cx - Bx) * cos(ugol) - (Cy - By) * sin(ugol) + Bx;
 		Cy = (Cx - Bx) * sin(ugol) + (Cy - By) * cos(ugol) + By;
-		cout << "Новые координаты вершин A, C : \n" << "B: (" << Ax << "," << Ay << ")\n" << "C: (" << Cx << "," << Cy << ")\n";
+		cout << "[-] Новые координаты вершин A, C : \n" << "B: (" << Ax << "," << Ay << ")\n" << "C: (" << Cx << "," << Cy << ")\n";
 	}
 	void povorotC(int ugol) {
 		Ax = (Ax - Cx) * cos(ugol) - (Ay - Cy) * sin(ugol) + Cx;
 		Ay = (Ax - Cx) * sin(ugol) + (Ay - Cy) * cos(ugol) + Cy;
 		Bx = (Bx - Cx) * cos(ugol) - (By - Cy) * sin(ugol) + Cx;
 		By = (Bx - Cx) * sin(ugol) + (By - Cy) * cos(ugol) + Cy;
-		cout << "Новые координаты вершин A, B : \n" << "A: (" << Ax << "," << Ay << ")\n" << "B: (" << Bx << "," << By << ")\n";
+		cout << "[-] Новые координаты вершин A, B : \n" << "A: (" << Ax << "," << Ay << ")\n" << "B: (" << Bx << "," << By << ")\n";
 	}
 	void povorotOkr(int ugol) {
 		double Ox, Oy, D;
@@ -102,7 +102,7 @@ public:
 		By = (Bx - Ox) * sin(ugol) + (By - Oy) * cos(ugol) + Oy;
 		Cx = (Cx - Ox) * cos(ugol) - (Cy - Oy) * sin(ugol) + Ox;
 		Cy = (Cx - Ox) * sin(ugol) + (Cy - Oy) * cos(ugol) + Oy;
-		cout << "Новые координаты вершин A, C : \n" << "A: (" << Ax << "," << Ay << ")\n" << "B: (" << Bx << "," << By << ")\n" << "C: (" << Cx << ", " << Cy << ")\n";
+		cout << "[-] Новые координаты вершин A, C : \n" << "A: (" << Ax << "," << Ay << ")\n" << "B: (" << Bx << "," << By << ")\n" << "C: (" << Cx << ", " << Cy << ")\n";
 	}
 };
 int main()

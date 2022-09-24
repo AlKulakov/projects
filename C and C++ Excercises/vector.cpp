@@ -23,7 +23,7 @@ public:
 		return price;
 	}
 	void show() {
-		cout << nom_num << "\t" << furn_name << "\t" << price << "\n";
+		cout << "[-] " << nom_num << "\t" << furn_name << "\t" << price << "\n";
 	}
 };
 bool compareFunction1(furniture& a, furniture& b) { return a.getPrice() < b.getPrice(); }

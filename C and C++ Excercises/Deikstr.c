@@ -21,7 +21,7 @@ int main()
 	{
 		a[i][i] = 0;
 		for (int j = i + 1; j < SIZE; j++) {
-			printf("Введите расстояние %d - %d: ", i + 1, j + 1);
+			printf("[+] Введите расстояние %d - %d: ", i + 1, j + 1);
 			scanf("%d", &temp);
 			a[i][j] = tmp;
 			a[j][i] = tmp;
@@ -67,7 +67,7 @@ int main()
 			v[minindex] = 0;
 		}
 	} while (minindex < 10000);
-	printf("\nКратчайшие расстояния до вершин: \n");
+	printf("\n[-] Кратчайшие расстояния до вершин: \n");
 	for (int i = 0; i < SIZE; i++)
 		printf("%5d ", d[i]);
 	int ver[SIZE];
@@ -93,7 +93,7 @@ int main()
 			}
 		}
 	}
-	printf("\nВывод кратчайшего пути\n");
+	printf("\n[-] Вывод кратчайшего пути\n");
 	for (int i = k - 1; i >= 0; i--)
 		printf("%3d", ver[i]);
 	getchar(); getchar();

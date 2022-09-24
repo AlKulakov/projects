@@ -3,53 +3,54 @@ namespace C_Sharp
 {
 	class program {
 	    static void Main() {
-	        double[,] mass = new double[10,10];
-	        fill(mass);
-	        show(mass);
-	        double[,] mass2 = new double[10,10];
-	        newmass(mass,mass2);
+	        double[,] massive = new double[10,10];
+	        fill(massive);
+	        show(massive);
+	        double[,] massive2 = new double[10,10];
+	        newmassive(massive,massive2);
 	        Console.WriteLine("\n\n\n");
-	        show(mass2);
-	        Console.WriteLine(sum(mass2));
+	        show(massive2);
+	        Console.WriteLine("\n[-] Summary: \n" + Summary(massive2));
 	    }
-	    static void fill(double[,] mass) {
+	    static void fill(double[,] massive) {
 	        Random rand = new Random();
 	        for(int i = 0; i<10; i++) {
 	            for(int j = 0; j<10; j++) {
-	                mass[i,j] = rand.Next(0,10);
+	                massive[i,j] = rand.Next(0,10);
 	            }
 	        }
 	    }
-	    static void show(double[,] mass) {
+	    static void show(double[,] massive) {
+			Console.WriteLine("[-] Massive: \n";
 	        for(int i = 0; i<10; i++) {
 	            for(int j = 0; j<10; j++) {
-	                Console.Write(mass[i,j]+" ");
+	                Console.Write(massive[i,j]+" ");
 	            }
 	            Console.WriteLine("");
 	        }
 	    }
-	    static void newmass(double[,] mass, double[,] mass2) {
+	    static void newmassive(double[,] massive, double[,] massive2) {
 	        for(int i = 0; i<10; i++) {
 	            for(int j = 0; j<10; j++) {
-	                mass2[i,j] = mass[i,j];
+	                massive2[i,j] = massive[i,j];
 	            }
 	        }
 	        for(int i = 1; i<9; i++) {
 	            for(int j = 1; j<9; j++) {
-	                mass2[i,j] = (mass[i-1,j-1]+mass[i-1,j]+mass[i-1,j+1]+mass[i,j-1]+mass[i,j]+mass[i,j+1]+mass[i+1,j-1]+mass[i+1,j]+mass[i+1,j+1])/9;
+	                massive2[i,j] = (massive[i-1,j-1]+massive[i-1,j]+massive[i-1,j+1]+massive[i,j-1]+massive[i,j]+massive[i,j+1]+massive[i+1,j-1]+massive[i+1,j]+massive[i+1,j+1])/9;
 	            }
 	        }
 	    }
-	    static double sum(double[,] mass) {
-	        double sum = 0;
+	    static double Summary(double[,] massive) {
+	        double Summary = 0;
 	        for(int i = 0; i<10; i++) {
 	            for(int j = 0; j<10; j++) {
 	                if(i>j) {
-	                    sum+=mass[i,j];
+	                    Summary+=massive[i,j];
 	                }
 	            }
 	        }
-	        return sum;
+	        return Summary;
 	    }
 	}
 }

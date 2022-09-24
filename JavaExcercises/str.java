@@ -21,6 +21,6 @@ public class Main
 		for(int j = 0; j<mass.length; j++) {
 		        System.out.println(mass[j] + " ");
 		}
-		System.out.println("Количество: " + count);
+		System.out.println("[-] Количество: " + count);
 	}
 }

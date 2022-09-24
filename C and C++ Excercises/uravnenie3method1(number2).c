@@ -9,15 +9,15 @@ double func(int c, int d, double x) {
 int main() {
     int c,d,i=0;
     double a, b, x, result, h, m,n,e,s;
-    printf("print c, d\n");
+    printf("[+] Print c, d\n");
     scanf("%d%d", &c, &d);
     do{
-    printf("print  a,b\n");
+    printf("[+] rint  a,b\n");
     scanf("%lf%lf", &a, &b);
     m=func(c,d,a);
     n=func(c,d,b);
     if((m>0 && n<0) || (m<0 && n>0)) {
-            printf("accuracy: ");
+            printf("[+] ccuracy: ");
             scanf("%lf", &s);
             do{
             h=(a+b)/2;
@@ -30,11 +30,11 @@ int main() {
             }
             i++;
             } while(fabs(func(c,d,h))>s) ;
-        printf("iterations: %d, x: %.10f, result: %.10f\n", i, h, func(c,d,h));
+        printf("[-] Iterations: %d, x: %.10f, result: %.10f\n", i, h, func(c,d,h));
         break;
     }
     else {
-        printf("Your function results in a,b have same sign, try again\n");
+        printf("[-] Your function results in a,b have same sign, try again\n");
         continue;
     }
     }

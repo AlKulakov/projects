@@ -12,7 +12,7 @@ namespace C_Sharp
  	    }
  	}
     public void show() {
-        Console.WriteLine("");
+        Console.WriteLine("\n[-] Massive show: \n");
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
                 Console.Write(mass[i,j]+" ");
@@ -54,7 +54,7 @@ namespace C_Sharp
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
                 if(array[i,j]!=mass[i,j]){
-                    Console.WriteLine("Матрицы не равны");
+                    Console.WriteLine("[-] Матрицы не равны");
                     flag = 1;
                     break;
                 }
@@ -63,7 +63,7 @@ namespace C_Sharp
             if(flag == 1) break;
  	    }
  	    if(count == 9) {
- 	        Console.WriteLine("Матрицы равны");
+ 	        Console.WriteLine("[-] Матрицы равны");
  	    }
     }
     public double getElement(int i, int j) {
@@ -122,7 +122,7 @@ namespace C_Sharp
                 }
             }
         }
-        else Console.WriteLine("Нет обратной матрицы");
+        else Console.WriteLine("[-] Нет обратной матрицы");
     }
 } 
 	class program {
@@ -143,7 +143,7 @@ namespace C_Sharp
 		m1.show();
 		m1.equal(arr2);
 		double el = m1.getElement(2,1);
-		Console.WriteLine(el);
+		Console.WriteLine("[-] Element: " + el);
 		m1.transp();
 		m1.show();
 		matrix m2 = new matrix(arr2);

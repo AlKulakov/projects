@@ -16,10 +16,10 @@ typedef struct {
 int main() {
     FILE *log;
     log=fopen("log.txt", "a+");
-    printf("Добро пожаловать!\n Это эмулятор комьютера, созданный на языке C. \n ");
+    printf("[+] Добро пожаловать!\n Это эмулятор комьютера, созданный на языке C. \n ");
     char *ram[10]; 
     char command2[30];
-    int i=0,j,k,a=0,b,u=0, o;
+    int i=0,memoryCell,k,a=0,b,u=0, memoryCell2;
     int command;
     for(k=0;k<10;k++)
         ram[k]=(char*)malloc(15*sizeof(int));
@@ -41,59 +41,59 @@ int main() {
             printf("exit!\n");
         }
         else if(command/100==20) {
-            printf("word memory cell number: ");
-            scanf("%d",&j);
-            strcpy(acc.word, ram[j]);
-            printf("done!\n");
+            printf("[-] Word memory cell number: ");
+            scanf("%d",&memoryCell);
+            strcpy(acc.word, ram[memoryCell]);
+            printf("[+] Done!\n");
         }
         else if(command/100==21) {
-            printf("word memory cell number: ");
-            scanf("%d",&j);
-            strcpy(ram[j], acc.word);
+            printf("[-] Word memory cell number: ");
+            scanf("%d",&memoryCell);
+            strcpy(ram[memoryCell], acc.word);
             printf("done!\n");
         }
         else if(command/100==22) {
             printf("accumulator word: %s\n", acc.word);
         }
         else if(command/100==30) {
-            printf("word cell number: ");
-            scanf("%d", &j);
-            printf("word's sum: %d\n", command30(ram,acc.word,j));
-            acc.ops.A[a]=command30(ram,acc.word,j);
+            printf("[-] Word cell number: ");
+            scanf("%d", &memoryCell);
+            printf("[-] Word's sum: %d\n", command30(ram,acc.word,memoryCell));
+            acc.ops.A[a]=command30(ram,acc.word,memoryCell);
             a++;
         }
         else if(command/100==31) {
-            printf("word cell number: ");
-            scanf("%d", &j);
-            printf("word's diff: %d\n", command31(ram,acc.word,j));
-            acc.ops.A[a]=command31(ram,acc.word,j);
+            printf("[-] Word cell number: ");
+            scanf("%d", &memoryCell);
+            printf("[-] Word's diff: %d\n", command31(ram,acc.word,memoryCell));
+            acc.ops.A[a]=command31(ram,acc.word,memoryCell);
             a++;
         }
         else if(command/100==32) {
-            printf("word cell number: ");
-            scanf("%d", &j);
-            if(j>u) {
-                printf("Error!\n");
+            printf("[-] Word cell number: ");
+            scanf("%d", &memoryCell);
+            if(memoryCell>u) {
+                printf("[-] Error!\n");
                 continue;
             }
-            printf("word's div: %d\n", command32(ram,acc.word,j));
-            acc.ops.A[a]=command32(ram,acc.word,j);
+            printf("[-] Word's div: %d\n", command32(ram,acc.word,memoryCell));
+            acc.ops.A[a]=command32(ram,acc.word,memoryCell);
             a++;
         }
         else if(command/100==40) {
-            printf("word memory cell: ");
-            scanf("%d", &o);
-            if(o<10) {
-                i=o;
+            printf("[-] Word memory cell: ");
+            scanf("%d", &memoryCell2);
+            if(memoryCell2<10) {
+                i=memoryCell2;
             }
         }
         else if(command/100==41) {
             for(b=0;b<a;b++) {
                 if(acc.ops.A[b]<0) {
-                    printf("word memory cell: ");
-                scanf("%d", &o);
-                    if(o<10) {
-                        i=o;
+                    printf("[-] Word memory cell: ");
+                scanf("%d", &memoryCell2);
+                    if(memoryCell2<10) {
+                        i=memoryCell2;
                     }
                 }
             }
@@ -101,20 +101,20 @@ int main() {
         else if(command/100==42) {
             for(b=0;b<a;b++) {
                 if(acc.ops.A[b]==0) {
-                    printf("word memory cell: ");
-                scanf("%d", &o);
-                    if(o<10) {
-                        i=o;
+				printf("[-] Word memory cell: ");
+                scanf("%d", &memoryCell2);
+                    if(memoryCell2<10) {
+                        i=memoryCell2;
                     }
                 }
             }
         }
         else {
-            printf("wrong command!\n"); 
+            printf("[-] Wrong command!\n"); 
         }
-        fprintf(log, "command: %d\n", command);
+        fprintf(log, "Command: %d\n", command);
     }
-    printf("accumulator results:\n");
+    printf("[+] ccumulator results:\n");
     for(b=0;b<a;b++) {
         printf("%d,", acc.ops.A[b]);
     }
@@ -128,10 +128,10 @@ void command10(char *ram[], int i) {
     scanf("%s", ram[i]);
 }
 void command11(char *ram[], int i) {
-    int j;
+    int memoryCell;
     printf("memory cell number: ");
-    scanf("%d", &j);
-    printf("memory cell %d word:  %s\n",j, ram[j]);
+    scanf("%d", &memoryCell);
+    printf("memory cell %d word:  %s\n",memoryCell, ram[memoryCell]);
 }
 int command30(char *ram[], char *acc, int i) {
     int sum= *ram[i] + *acc;

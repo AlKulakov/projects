@@ -23,7 +23,7 @@ class dat {
         int razd = day-raz.day;
         int razm = month-raz.month;
         int razy = year-raz.year;
-        System.out.println("Разность дат:" + razd + "-" + razm + "-" + razy);
+        System.out.println("[-] Разность дат:" + razd + "-" + razm + "-" + razy);
     }
     public void sumday(int plusday) {
         int sday = day+plusday;
@@ -43,7 +43,7 @@ class dat {
             }
             }
         }
-        System.out.println("Результат сложения дней: " + sday + "-" + mmonth + "-" + yyear);
+        System.out.println("[-] Результат сложения дней: " + sday + "-" + mmonth + "-" + yyear);
     }
     public void summonth(int plusmonth) {
         int smonth=month+plusmonth;
@@ -55,16 +55,16 @@ class dat {
                 smonth++;
             }
         }
-        System.out.println("Результат сложения месяцев: " + day + "-" + smonth + "-" + yyear);
+        System.out.println("[-] Результат сложения месяцев: " + day + "-" + smonth + "-" + yyear);
     }
     public void sumyear(int plusyear) {
         int yyear=year+plusyear;
-        System.out.println("Результат сложения месяцев: " + day + "-" + month + "-" + yyear);
+        System.out.println("[-] Результат сложения месяцев: " + day + "-" + month + "-" + yyear);
     }
     public void daysandweeks() {
         Date datee = new Date();
 		SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd-MM-yyyy");
-        System.out.println("Текущая дата: " + formatForDateNow.format(datee));
+        System.out.println("[-] Текущая дата: " + formatForDateNow.format(datee));
         String currentDate=formatForDateNow.format(datee).toString();
 		Date yearStartTime = new Date();
 		yearStartTime.setHours(0);
@@ -76,8 +76,8 @@ class dat {
         long msTimeDistance = currentTime.getTime() - yearStartTime.getTime();
         long msDay = 24 * 60 * 60 * 1000;
         int dayCount = (int) (msTimeDistance/msDay);
-        System.out.println("Дней прошло с начала года: " + dayCount);
-        System.out.println("Недель прошло с начала года: " + dayCount/7);
+        System.out.println("[-] Дней прошло с начала года: " + dayCount);
+        System.out.println("[-] Недель прошло с начала года: " + dayCount/7);
     }
 }
 public class Main
