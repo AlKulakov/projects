@@ -53,11 +53,13 @@ try:
         packets_amount+=2
         print("\r[+] Packets sent: ", str(packets_amount), end="")
         time.sleep(2)
+
 except KeyboardInterrupt:
     print("\n[+] Program has been stopped, ARP tables will be reseted\n")
     restore(target_ip, router_ip)
     restore(router_ip, target_ip)
     routing_disable()
+
 except IndexError:
     print("\n[+] Something went wrong...\n")
     restore(target_ip, router_ip)
