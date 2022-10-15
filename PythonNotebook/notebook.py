@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ######################################################
-
+					# DEFAULTS
 intValue = 43 #Числовой тип
 stringValue = "ksdfds" #Строки
 floatValue = 2.32 #Числа с плавающей точкой
@@ -10,9 +10,9 @@ dictionaryValue = {"key1":34, "key2":43}  #Словарь в виде ключа
 tupleValue = (20, "dfdfs", 93) #Не нумерованный список
 setValue  = {"fdsf", "dfsdf"} #Множества
 booleanValue = True # Булевой тип данных
-
+4 ** (1/2) - # Square root
 #################################################################
-
+					# STRINGS
 newString = "bfsodifhsldfk" 
 print(newString[1:9:2]) # [Начальный элемент:Конечный элемент:Шаг]
 
@@ -44,7 +44,7 @@ print("Result: {r:.5f}".format(r=result)) # (value:space.width f)
 print(f"Result: {result}") # f strings
 
 #################################################################
-
+						# LISTS
 #Index manipulations as strings
 listValue + [3, 45, "sfsdd"] # Concat lists
 
@@ -61,8 +61,65 @@ listValue.sort() # Sorting list a-z 1-9
 listValue.reverse() # Reversing list
 
 ################################################################
-
+					# DICTIONARIES
 #Cant be sorted
 
 
+dic = {"abc":[23,34,53], 43:34} # Dictionary
+
+dic["abc"][1] # Take element from Dictionary with 1 index
+
+dic[43] = "New value" # Change value
+
+dic.keys() # Show keys
+
+dic.values() # Show values
+
+dic.items() # Show all
+
+################################################################
+					# TUPLES
+#Cant be changed
+
+tupleValue.index("a") # First element appearence
+
+tupleValue.count(23) # Count of elements
+
+################################################################
+					# SETS
+#Unique elements
+
+newSet = set() # New set
+
+newSet.add(2) # Add item to set
+
+mylist = [3, 3, 4, 5, 6, 6]
+set(mylist) # Convert list to set
+
+################################################################
+					#bool
+
+b = None
+
+################################################################
+					#FILES
+%%writefile mynewfile.txt
+sfgsdfgsd
+sdfgsdfgsd
+dfsgdfgdfgfggd
+
+myFile = open("myfile.txt", "w+") # Create new file
+# w - create and write
+# r - read
+# r+ - read and write
+# w+ - create or read and write
+# b - binary file (01)
+# a - create or open for adding new info
+myFile.close() # Close file
+print(*myFile) # Print file info
+new_file.read() # file reading
+with open("myfile.txt", "a+") as new_file:
+	new_file.write("New line") # Append in file
+
+##############################################################
 
