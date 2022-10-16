@@ -2,6 +2,10 @@
 
 import smtplib
 import argparse
+import os
+import sys
+from configparser import ConfigParser
+import inspect
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -17,10 +21,27 @@ def get_args():
         parser.error("[-] There is an error, type -h for help")
     return args
 
+def get_cfg():
+    currentPath = os.path.dirname(inspect.getabsfile(get_args))
+    cfg_path = os.path.join(currentPath, "conf.ini")
+    if os.path.exists(cfg_path):
+        cfg = ConfigParser()
+        cfg.read(cfg_path)
+    else:
+        print(f"There is no conf.ini file in script folder! Exiting! {cfg_path}")
+        sys.exit(1)
+    cfgInfo = dict()
+    cfgInfo['server'] = cfg.get("smtp", "server")
+    cfgInfo['port'] = cfg.get("smtp", "port")
+    cfgInfo['host_address'] = cfg.get("smtp", "host_address")
+    cfgInfo['host_password'] = cfg.get("smtp", "host_password")
+    return cfgInfo
+
 def sendEmail(targetEmail, messageText):
-    server = smtplib.SMTP_SSL('smtp.mail.ru', 465)
-    server.login('bagitaf@mail.ru', 'NTG6yhqqLugjRwweURj2')
-    server.sendmail('bagitaf@mail.ru', targetEmail, messageText)
+    cfg_info = get_cfg()
+    server = smtplib.SMTP_SSL(cfg_info['server'], cfg_info['port'])
+    server.login(cfg_info['host_address'], cfg_info['host_password'])
+    server.sendmail(cfg_info['host_address'], targetEmail, messageText)
     server.close()
 
 arg = get_args()
