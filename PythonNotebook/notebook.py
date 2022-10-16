@@ -122,4 +122,80 @@ with open("myfile.txt", "a+") as new_file:
 	new_file.write("New line") # Append in file
 
 ##############################################################
+					# Logic
+1<3<4 # Two comparing operators
+1<3 and 3<4 # && operator
+1>3 or 4<5 # || operator
+1 is not 3 # != operator
 
+###############################################################
+					#For
+for element in listValue # Cicle for
+	print(element)
+
+
+corList = [(1,2), (3,4), (5,6)]
+
+for (a,b) in corList: # Tuple encounter
+	print(a)
+	print(b)
+
+for a,b in corList:
+	print(a)
+	print(b)
+
+dicti = {'k1': 2, 'k2':3, 'k3': 4}
+
+for item in dicti.items(): # For in dictionariess
+	print(item)
+
+for key,value in dicti.items(): # Dictionaries encounter
+	print(key)
+	print(value)
+
+################################################################
+					#WHILE
+
+while True:
+	print("hsldhfd")
+else:					#Else can be used with while
+	print("abc")
+
+while True:
+	pass			#Filler
+
+################################################################
+					#OPERATORS
+
+for i in range(5): # Generator of the values (start, stop, step)
+	print(i)
+
+for element in enumerate(word): # Creates tuples with index and value
+	print(item)
+
+zip(listValue, mylist) # Unite 2 or more lists in tuples
+
+for item in zip(listValue, mylist):
+	print item
+
+'x' in ['x', 'y', 'z']
+
+'mykey' in {'mykey':1234}
+
+list1 = [10, 15,20, 5]
+
+min(list1) # returns minimal value
+max(list1) # returns maximal value
+#-------------------------
+from random import shuffle
+list2 = [1,2,3,4,5]
+
+shuffle(list2) # random shuffle the elements
+
+randint(0,100) # returns random integer value (start, stop)
+
+input("Enter: ") # system input value
+
+float(value) #To float
+int(value) #To int
+str(value) #To string
