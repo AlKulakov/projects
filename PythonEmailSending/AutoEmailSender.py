@@ -50,5 +50,5 @@ subject = arg.subject
 text = arg.message
 cfg = get_cfg()
 sender = cfg['host_address']
-message = f'Subject: {subject}\n\nFrom: {sender}\nTo: {targetEmail}\n\n{text}'
+message = f'Subject: {subject}\n\nFrom: {sender}\nTo: {targetEmail}Subject: {subject}\n\n{text}'
 sendEmail(targetEmail, message)
