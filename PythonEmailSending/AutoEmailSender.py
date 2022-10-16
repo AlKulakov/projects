@@ -12,7 +12,7 @@ def get_args():
     if not args.target:
         parser.error("[-] There is an error, type -h for help")
     if not args.subject:
-        subject="Nameless message"
+        args.subject="Nameless message"
     if not args.message:
         parser.error("[-] There is an error, type -h for help")
     return args
