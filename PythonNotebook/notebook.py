@@ -199,3 +199,12 @@ input("Enter: ") # system input value
 float(value) #To float
 int(value) #To int
 str(value) #To string
+
+####################################################
+					#List generators
+
+mystr = "Hello world"
+
+newlist = [character for character in mystr] # Creates list with string's character
+
+newlst = [i**2 for i in range(1,10) if i%2==0] # Creates list with squares numbers 1-10 range
