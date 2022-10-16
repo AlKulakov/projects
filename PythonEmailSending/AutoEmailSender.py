@@ -28,7 +28,7 @@ def get_cfg():
         cfg = ConfigParser()
         cfg.read(cfg_path)
     else:
-        print(f"There is no conf.ini file in script folder! Exiting! {cfg_path}")
+        print(f"[-] There is no conf.ini file in script folder! Exiting! Currrent catalog: {cfg_path}")
         sys.exit(1)
     cfgInfo = dict()
     cfgInfo['server'] = cfg.get("smtp", "server")
@@ -48,8 +48,7 @@ arg = get_args()
 targetEmail = arg.target
 subject = arg.subject
 text = arg.message
-message = f'Subject: {subject}\n\nFrom: Bagitaf Georgiy\nTo: {targetEmail}\n\n{text}'
+cfg = get_cfg()
+sender = cfg['host_address']
+message = f'Subject: {subject}\n\nFrom: {sender}\nTo: {targetEmail}\n\n{text}'
 sendEmail(targetEmail, message)
-
-
-
