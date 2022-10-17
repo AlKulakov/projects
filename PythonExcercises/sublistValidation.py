@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 
 def validation(nestedList, simpleList):
+'''
+    DOCSTRING: Проверка содержания списка [nestedList] в [simpleList]
+    INPUT: Списки [nestedList], [simpleList]
+    OUTPUT: Соответсвие [valid]
+    '''
     valid = True
     for element in nestedList:
         if type(element)==list:

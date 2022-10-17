@@ -8,6 +8,11 @@ class dat {
     static String title;
     static void setTitle (String s) { title = s; }
     dat (String s) {
+	/*
+	DOCSTRING: Конструктор класса даты
+	INPUT: Дата [s]
+	OUTPUT: Нет
+	*/
         String r[] = s.split("-");
         for(int i = 0; i < r.length; i++) {
             char charAtZero = r[i].charAt(0);
@@ -20,12 +25,22 @@ class dat {
         year = Integer.parseInt(r[2]);
     }
     public void raznost(dat raz) {
+	/*
+	DOCSTRING: Разность дат
+	INPUT: Дата
+	OUTPUT: Нет
+	*/
         int razd = day-raz.day;
         int razm = month-raz.month;
         int razy = year-raz.year;
         System.out.println("[-] Разность дат:" + razd + "-" + razm + "-" + razy);
     }
     public void sumday(int plusday) {
+	/*
+	DOCSTRING: Прибавить дни
+	INPUT: Дни
+	OUTPUT: Нет
+	*/
         int sday = day+plusday;
         int mmonth=month;
         int yyear=year;
@@ -46,6 +61,11 @@ class dat {
         System.out.println("[-] Результат сложения дней: " + sday + "-" + mmonth + "-" + yyear);
     }
     public void summonth(int plusmonth) {
+	/*
+	DOCSTRING: Прибавить месяцы
+	INPUT: Месяцы
+	OUTPUT: Нет
+	*/
         int smonth=month+plusmonth;
         int yyear=year;
             if(smonth > 12){
@@ -58,10 +78,20 @@ class dat {
         System.out.println("[-] Результат сложения месяцев: " + day + "-" + smonth + "-" + yyear);
     }
     public void sumyear(int plusyear) {
+	/*
+	DOCSTRING: Прибавить года
+	INPUT: Года
+	OUTPUT: Нет
+	*/
         int yyear=year+plusyear;
         System.out.println("[-] Результат сложения месяцев: " + day + "-" + month + "-" + yyear);
     }
     public void daysandweeks() {
+	/*
+	DOCSTRING: Посчитать время с начала года
+	INPUT: Нет
+	OUTPUT: Нет
+	*/
         Date datee = new Date();
 		SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd-MM-yyyy");
         System.out.println("[-] Текущая дата: " + formatForDateNow.format(datee));
@@ -83,6 +113,11 @@ class dat {
 public class Main
 {
 	public static void main(String[] args) {
+	/*
+	DOCSTRING: Метод main
+	INPUT: Аргументы
+	OUTPUT: Нет
+	*/
 		String date1 = "23-05-2012";
 		String date2 = "03-03-2010";
 		Date date = new Date();

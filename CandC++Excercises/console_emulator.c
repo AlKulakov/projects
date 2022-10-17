@@ -14,6 +14,11 @@ typedef struct {
     opers ops;
 }accum;
 int main() {
+	/*
+	DOCSTRING: Главный метод main, вызывающий консоль
+	INPUT: Нет
+	OUTPUT: 0
+	*/
     FILE *log;
     log=fopen("log.txt", "a+");
     printf("[+] Добро пожаловать!\n Это эмулятор комьютера, созданный на языке C. \n ");
@@ -124,24 +129,49 @@ int main() {
     return 0;
 }
 void command10(char *ram[], int i) {
+	/*
+	DOCSTRING: Описание команды 10
+	INPUT: Указатель на массив, ячейка [i]
+	OUTPUT: Нет
+	*/
     printf("memory cell %d word:",i);
     scanf("%s", ram[i]);
 }
 void command11(char *ram[], int i) {
+	/*
+	DOCSTRING: Описание команды 11
+	INPUT: Указатель на массив, ячейка [i]
+	OUTPUT: Нет
+	*/
     int memoryCell;
     printf("memory cell number: ");
     scanf("%d", &memoryCell);
     printf("memory cell %d word:  %s\n",memoryCell, ram[memoryCell]);
 }
 int command30(char *ram[], char *acc, int i) {
+	/*
+	DOCSTRING: Описание команды 30
+	INPUT: Указатель на массив, указатель на аккумулятор, ячейка [i]
+	OUTPUT: Сумма элемента массива и аккумулятора
+	*/
     int sum= *ram[i] + *acc;
     return sum;
 }
 int command31(char *ram[], char *acc, int i) {
+	/*
+	DOCSTRING: Описание команды 30
+	INPUT: Указатель на массив, указатель на аккумулятор, ячейка [i]
+	OUTPUT: Разность элементов массива и аккумулятора
+	*/
     int razn= *acc - *ram[i];
     return razn;
 }
 int command32(char *ram[], char *acc, int i) {
+	/*
+	DOCSTRING: Описание команды 30
+	INPUT: Указатель на массив, указатель на аккумулятор, ячейка [i]
+	OUTPUT: Частное от деления аккумулятора и элемента массива
+	*/
     int div= *acc / *ram[i];
     return div;
 }

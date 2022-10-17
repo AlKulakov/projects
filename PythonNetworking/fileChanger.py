@@ -8,6 +8,11 @@ subprocess.call("iptables -I INPUT -j NFQUEUE --queue-num 0", shell=True)
 subprocess.call("iptables -I OUTPUT -j NFQUEUE --queue-num 0", shell=True)
 
 def set_load(scapyPacket, load):
+    '''
+    DOCSTRING: Установить нагрузку пакетов
+    INPUT: Пакет [scapyPacket], данные из пакета в формате http [load]
+    OUTPUT: Пакет [scapyPacket]
+    '''
     scapyPacket[scapy.Raw].load = load
     del scapyPacket[scapy.IP].len
     del scapyPacket[scapy.IP].chksum
@@ -15,6 +20,11 @@ def set_load(scapyPacket, load):
     return scapyPacket
 
 def process_packet(packet):
+    '''
+    DOCSTRING: Чтение из очереди пакетов
+    INPUT: Пакет [packet]
+    OUTPUT: Нет
+    '''
     scapyPacket = scapy.IP(packet.get_payload())
     if scapyPacket.haslayer(scapy.Raw):
         if scapyPacket[scapy.TCP].dport == 80:

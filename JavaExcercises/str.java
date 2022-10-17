@@ -1,6 +1,11 @@
 public class Main
 {
 	public static void main(String[] args) {
+	/*
+	DOCSTRING: Главный метод main
+	INPUT: Аргументы
+	OUTPUT: Нет
+	*/
 		String s = "abcd sdfcs as 123 vbxc dklfd";
 		String[] mass = s.split(" ");
 		String a;

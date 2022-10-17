@@ -4,6 +4,11 @@
 using namespace std;
 
 double findansw(int* w, int* v, double* b, int N, int W) {
+	/*
+	DOCSTRING: Найти S
+	INPUT: Массивы w,v,b, целые числа N, W
+	OUTPUT: S
+	*/
     for (int i = 0; i < N; i++)
     {
         b[i] = v[i] / w[i];

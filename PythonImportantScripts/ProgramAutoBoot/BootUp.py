@@ -3,6 +3,11 @@ import subprocess
 import os
 import inspect
 def mvFile():
+    '''
+    DOCSTRING: Перенести файл в нужную директорию
+    INPUT: Нет
+    OUTPUT: Нет
+    '''
     currentPath = os.path.dirname(inspect.getabsfile(mvFile))
     file_path = os.path.join(currentPath, "br.exe")
     currentUser = os.getlogin()

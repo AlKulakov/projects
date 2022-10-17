@@ -4,6 +4,11 @@ import pprint
 import argparse
 
 def get_args():
+    '''
+    DOCSTRING: Получение аргументов при запуске скрипта
+    INPUT: Нет
+    OUTPUT: IP-адрес
+    '''
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--ipaddress", dest="ip_address", help="Ip address for sending packets")
     arg = parser.parse_args()
@@ -14,6 +19,11 @@ def get_args():
 
 
 def scan(ip):
+    '''
+    DOCSTRING: Получить текущие подключения в сети
+    INPUT: IP-адресс
+    OUTPUT: Список подключений к сети clients_list
+    '''
     arp_req = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst = "ff:ff:ff:ff:ff:ff")
     arp_req_b = broadcast/arp_req
@@ -25,6 +35,11 @@ def scan(ip):
     return clients_list
 
 def print_res(clients_list):
+    '''
+    DOCSTRING: Печать данных подлюченных клиентов
+    INPUT: Список клиентов
+    OUTPUT: Нет
+    '''
     print("--------------------------------------")
     print("| IP\t\t| MAC-address \t")
     print("--------------------------------------")
@@ -35,5 +50,5 @@ def print_res(clients_list):
 
 
 arg = get_args()
-cl_l = scan(arg)
-print_res(cl_l)
+client_list = scan(arg)
+print_res(client_list)

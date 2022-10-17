@@ -3,6 +3,11 @@
 using namespace std;
 int main()
 {
+	/*
+	DOCSTRING: Главный метод main
+	INPUT: Нет
+	OUTPUT: 0
+	*/
     setlocale(LC_ALL, "Russian");
     string str = "Задана строка символов. Вывести на экран только различные слова. Есть строка, на экран.";
     string temp;

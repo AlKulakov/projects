@@ -9,26 +9,70 @@ protected:
 	int price;
 public:
 	furniture(int nom_num, string furn_name, int price) {
+	/*
+	DOCSTRING: Конструктор класса мебели
+	INPUT: Ном. номер, имя мебели, цена изделия
+	OUTPUT: Нет
+	*/
 		this->nom_num = nom_num;
 		this->furn_name = furn_name;
 		this->price = price;
 	}
 	int getNomNum() {
+	/*
+	DOCSTRING: Получить номенкулатурный номер
+	INPUT: Нет
+	OUTPUT: Номеркулатурный номер
+	*/
 		return nom_num;
 	}
 	string getFurnName() {
+	/*
+	DOCSTRING: Получить название мебели
+	INPUT: Нет
+	OUTPUT: Название мебели
+	*/
 		return furn_name;
 	}
 	int getPrice() {
+	/*
+	DOCSTRING: Получить цену изделия
+	INPUT: Нет
+	OUTPUT: Цена изделия
+	*/
 		return price;
 	}
 	void show() {
+	/*
+	DOCSTRING: Вывод информации
+	INPUT: Нет
+	OUTPUT: Нет
+	*/
 		cout << "[-] " << nom_num << "\t" << furn_name << "\t" << price << "\n";
 	}
 };
-bool compareFunction1(furniture& a, furniture& b) { return a.getPrice() < b.getPrice(); }
-bool compareFunction2(furniture& a, furniture& b) { return a.getFurnName() < b.getFurnName(); }
+bool compareFunction1(furniture& a, furniture& b) { 
+	/*
+	DOCSTRING: Сравнение цены изделий
+	INPUT: Изделия [a] и [b]
+	OUTPUT: Результат сравнения цены
+	*/
+	return a.getPrice() < b.getPrice(); 
+}
+bool compareFunction2(furniture& a, furniture& b) { 
+	/*
+	DOCSTRING: Сравнение имени изделий
+	INPUT: Изделия [a] и [b]
+	OUTPUT: Результат сравнения имен
+	*/
+return a.getFurnName() < b.getFurnName(); 
+}
 int main() {
+	/*
+	DOCSTRING: Главный метод main, создание векторов и сортировка информации
+	INPUT: Нет
+	OUTPUT: 0
+	*/
 	setlocale(LC_ALL, "Russian");
 	vector<furniture>obj1;
 	vector<furniture>obj2;

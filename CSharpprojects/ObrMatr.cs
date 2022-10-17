@@ -5,6 +5,11 @@ namespace C_Sharp
 	{
 	private double[,] mass = new double[3,3];
 	public matrix(double[,] mass) {
+	/*
+	DOCSTRING: Конструктор матрицы
+	INPUT: Двумерный массив [mass]
+	OUTPUT: Нет
+	*/
  	for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
                 this.mass[i,j] = mass[i,j];
@@ -12,6 +17,11 @@ namespace C_Sharp
  	    }
  	}
     public void show() {
+	/*
+	DOCSTRING: Вывод массива
+	INPUT: Нет
+	OUTPUT: Нет
+	*/
         Console.WriteLine("\n[-] Massive show: \n");
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
@@ -21,6 +31,11 @@ namespace C_Sharp
  	    }
     }
     public void matrixPlus(double[,] array) {
+	/*
+	DOCSTRING: Сложить матрицы
+	INPUT: Массив [array]
+	OUTPUT: Нет
+	*/
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
                 mass[i,j] += array[i,j];
@@ -28,6 +43,11 @@ namespace C_Sharp
  	    }
     }
     public void matrixMinus(double[,] array) {
+	/*
+	DOCSTRING: Разность матриц
+	INPUT: Массив [array]
+	OUTPUT: Нет
+	*/
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
                 mass[i,j] -= array[i,j];
@@ -35,6 +55,11 @@ namespace C_Sharp
  	    }
     }
     public void numberPlus(double number) {
+	/*
+	DOCSTRING: Сложить матрицу и число
+	INPUT: Число [number]
+	OUTPUT: Нет
+	*/
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
                 mass[i,j] += number;
@@ -42,6 +67,11 @@ namespace C_Sharp
  	    }
     }
     public void numberMinus(double number) {
+	/*
+	DOCSTRING: Отнять число из матрицы
+	INPUT: Число [number]
+	OUTPUT: Нет
+	*/
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
                 mass[i,j] -= number;
@@ -49,6 +79,11 @@ namespace C_Sharp
  	    }
     }
     public void equal(double[,] array) {
+	/*
+	DOCSTRING: Сравнить матрицы
+	INPUT: Массив [array]
+	OUTPUT: Нет
+	*/
         int count = 0;
         int flag = 0;
         for(int i=0;i<3; i++) {
@@ -67,9 +102,19 @@ namespace C_Sharp
  	    }
     }
     public double getElement(int i, int j) {
+	/*
+	DOCSTRING: Получить элемент по координатам
+	INPUT: Кордината i, координата j
+	OUTPUT: Элемент массива [mass[i,j]]
+	*/
         return mass[i,j];
     }
     public void transp() {
+	/*
+	DOCSTRING: Транспонирование матрицы
+	INPUT: Нет
+	OUTPUT: Нет
+	*/
         double e;
         for(int i=0;i<3; i++) {
             for(int j=0;j<3;j++){
@@ -82,6 +127,11 @@ namespace C_Sharp
         }
     }
     public void reverse() {
+	/*
+	DOCSTRING: Подсчет обратной матрицы
+	INPUT: Нет
+	OUTPUT: Нет
+	*/
         double det;
         double [,] minor = new double [3,3];
         det = mass[0,0]*mass[1,1]*mass[2,2] + mass[2,0]*mass[0,2]*mass[1,2] + mass[1,0]*mass[2,1]*mass[0,2] - mass[2,0]*mass[1,1]*mass[0,2] - mass[1,0]*mass[0,1]*mass[2,2] - mass[0,0]*mass[1,2]*mass[2,1];

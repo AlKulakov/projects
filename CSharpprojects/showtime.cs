@@ -5,6 +5,11 @@ namespace C_Sharp
     {
 	private int h, m, s;
 	public tme(int ho, int mi, int se) {
+	/*
+	DOCSTRING: Конструктор класса tme - время, приведение к норме
+	INPUT: Часы [ho], Минуты [mi], Секунды [se]
+	OUTPUT: Нет
+	*/
 		if(se<60)
 		s = se;
 		else {
@@ -27,6 +32,11 @@ namespace C_Sharp
 		}
 	}
 	public void sethours(int h){
+	/*
+	DOCSTRING: Установить часы
+	INPUT: Часы [h]
+	OUTPUT: Нет
+	*/
 		if(h<24) {
 			this.h = h;
 		}
@@ -35,6 +45,11 @@ namespace C_Sharp
 		}
 	}
 	public void setminutes(int m){
+	/*
+	DOCSTRING: Установить минуты
+	INPUT: Минуты [m]
+	OUTPUT: Нет
+	*/
 		if(m<60) {
 		this.m = m;
 		}
@@ -45,6 +60,11 @@ namespace C_Sharp
 				h%=24;
 	}
 	public void setseconds(int s){
+	/*
+	DOCSTRING: Установить секунды
+	INPUT: Секунды [s]
+	OUTPUT: Нет
+	*/
 		if(s<60) {
 		this.s = s;
 		}
@@ -59,6 +79,11 @@ namespace C_Sharp
 	}
 	public void settme(int h, int m, int s) 
 	{
+	/*
+	DOCSTRING: Установить время
+	INPUT: Часы [h], Минуты [m], Секунды [s]
+	OUTPUT: Нет
+	*/
 		if(s<60)
 		this.s = s;
 		else {
@@ -82,6 +107,11 @@ namespace C_Sharp
 	}
 	public void showtime()
 	{
+	/*
+	DOCSTRING: Вывод времени в консоль
+	INPUT: Нет
+	OUTPUT: Нет
+	*/
 		Console.WriteLine("[-] " + h + ":" + m + ":" + s);
 	} 
     }	
@@ -89,6 +119,11 @@ namespace C_Sharp
     {
         static void Main()
         {
+		/*
+		DOCSTRING: Главный метод Main
+		INPUT: Нет
+		OUTPUT: Нет
+		*/
 		tme t1 = new tme(25, 342, 233);
 		t1.showtime();
 		t1.settme(21, 42, 25);

@@ -2,16 +2,31 @@
 #include <stdlib.h>   
 #include <math.h>
 double func(int c, int d, double x) {
+	/*
+	DOCSTRING: Решение первого уравнения
+	INPUT: Переменные [c],[d], [x]
+	OUTPUT: Результат
+	*/
     double result;
     result = pow(x,4) + c*pow(x,3) - d*x;
     return result;
 }
 double func1(int c, int d, double x) {
+	/*
+	DOCSTRING: Решение второго уравнения
+	INPUT: Переменные [c],[d], [x]
+	OUTPUT: Результат
+	*/
     double result;
     result = 4*pow(x,3)+c*3*pow(x,2)-d;
     return result;
 }
 int main() {
+	/*
+	DOCSTRING: Главный метод main
+	INPUT: Нет
+	OUTPUT: 0
+	*/
 double x,a,b,eps;
 int i=0, c,d;
 printf("[+] Print c,d:\n");

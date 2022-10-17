@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 
 def counter(list):
+    '''
+    DOCSTRING: Подсчет числовых значений в списке
+    INPUT: Список [list]
+    OUTPUT: Количество чисел [count]
+    '''
     count = 0
     for element in list:
         if element.isnumeric():

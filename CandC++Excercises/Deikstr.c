@@ -5,6 +5,11 @@
 
 int main()
 {
+	/*
+	DOCSTRING: Главный метод main
+	INPUT: Нет
+	OUTPUT: 0
+	*/
 	system("chcp 1251");
 	system("cls");
 	int a[SIZE][SIZE] = { {0, 9, 1, 5, 10, 9},

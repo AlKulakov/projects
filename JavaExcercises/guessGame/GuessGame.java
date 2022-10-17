@@ -3,6 +3,11 @@ public class GuessGame {
 	Player p2;
 	Player p3;
 	public void startGame (){
+	/*
+	DOCSTRING: Начало игры, инициализация игроков, 
+	INPUT: Нет
+	OUTPUT: Нет
+	*/
 		p1 = new Player();
 		p2 = new Player();
 		p3 = new Player();

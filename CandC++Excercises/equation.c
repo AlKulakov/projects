@@ -2,11 +2,21 @@
 #include <math.h>
 #include <stdlib.h>
 double func(int c, int d, double x) {
+	/*
+	DOCSTRING: Метод решения уравния
+	INPUT: Переменные c,d, а также x
+	OUTPUT: Результат [result]
+	*/
     double result;
     result = log2(c*x) - d;
     return result;
 }
 int main() {
+	/*
+	DOCSTRING: Главный метод main
+	INPUT: Нет
+	OUTPUT: 0
+	*/
     int c,d,i=0;
     double a, b, x, result, h, m,n,e,eps;
     printf("[+] Print c, d\n");

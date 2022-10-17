@@ -1,5 +1,10 @@
 from random import randint
 def guessGame():
+    '''
+    DOCSTRING: Функция угадывания чисел
+    INPUT: Нет
+    OUTPUT: Количество попыток угадывания пользователя
+    '''
     goal = randint(1,100)
     attempt = 0
     previousInput = None

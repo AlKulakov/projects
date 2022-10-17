@@ -7,6 +7,11 @@ subprocess.call("iptables -I FORWARD -j NFQUEUE --queue-num 0", shell=True)
 
 
 def process_packet(packet):
+    '''
+    DOCSTRING: Функция чтения содержимого очереди пакетов
+    INPUT: Пакет [packet]
+    OUTPUT: Нет
+    '''
     scapyPacket = scapy.IP(packet.get_payload())
     if scapyPacket.haslayer(scapy.DNSRR):
         if www.bing.com in qname:

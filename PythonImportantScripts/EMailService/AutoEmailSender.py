@@ -8,6 +8,11 @@ from configparser import ConfigParser
 import inspect
 
 def get_args():
+    '''
+    DOCSTRING: Получение аргументов при запуске скрипта
+    INPUT: Нет
+    OUTPUT: Полученные аргументы [args]
+    '''
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--target", dest="target", help="[-] There is a mail address of your target")
     parser.add_argument("-s", "--subject", dest="subject", help="[-] There is a subject of message")
@@ -21,8 +26,22 @@ def get_args():
         parser.error("[-] There is an error, type -h for help")
     return args
 
-def get_cfg():
+def get_current_dir():
+    '''
+    DOCSTRING: Получение текущей директории скрипта
+    INPUT: Нет
+    OUTPUT: Адрес текущей директории в системе [currentPath]
+    '''
     currentPath = os.path.dirname(inspect.getabsfile(get_cfg))
+    return currentPath
+
+def get_cfg():
+    '''
+    DOCSTRING: Получить текущую конфигурацию в файле conf.ini
+    INPUT: Нет
+    OUTPUT: Словарь с информацией из конфига [cfgInfo]
+    '''
+    currentPath = get_current_dir()
     cfg_path = os.path.join(currentPath, "conf.ini")
     if os.path.exists(cfg_path):
         cfg = ConfigParser()
@@ -38,6 +57,11 @@ def get_cfg():
     return cfgInfo
 
 def sendEmail(targetEmail, messageText):
+    '''
+    DOCSTRING: Отправление письма по заданным параметрам
+    INPUT: Целевой адрес электронной почты [targetEmail], текст сообщения [messageText] 
+    OUTPUT: Нет
+    '''
     cfg_info = get_cfg()
     server = smtplib.SMTP_SSL(cfg_info['server'], cfg_info['port'])
     server.login(cfg_info['host_address'], cfg_info['host_password'])
