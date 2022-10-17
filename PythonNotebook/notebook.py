@@ -251,6 +251,101 @@ def mfun(**kwargs):  #input arguments into the dictionary
 
 mfun(source='192.168.1.10')
 
+#####################################################
+                      #Some Excercises
+def avg(*args):
+    return sum(args)/len(args)
+    
+def mini(a, b):
+    if a%2==0 and b%2==0:
+        return min(a,b)
+    else:
+        return max(a,b)
+
+def flag(string):
+    return string.split()[0][0]==string.split()[1][0]
+
+def flag2(c,d):
+    return c+d==20 or c==20 or d==20
+
+def mc(string):
+    mcd = ""
+    for i in range(len(string)):
+        if i == 0 or i == 3:
+            mcd += string[i].upper()
+        else:
+            mcd += string[i]
+    return mcd
+    
+def rev(string):
+    return string[::-1]
+    
+def boolean(n):
+    if abs(n-100)<=10 or abs(n-200)<=10:
+        return True
+    else: 
+        return False
+
+def neighbor(lst):
+    flag = bool()
+    for i in range(1, len(lst)-1):
+        if lst[i] == lst[i-1] or lst[i]==lst[i+1]:
+            flag = True
+        else:
+            flag = False
+    return flag     
+
+def pap(string):
+    newstr = str()
+    for char in string:
+        newstr+=char*3
+    return newstr
+    
+def black_jack(a,b,c):
+    result = a+b+c
+    if result <= 21:
+        return result
+    elif result > 21 and (a==11 or b==11 or c==11):
+        result-=10
+    if result > 21:
+        return "BUST"
+        
+def sum69(arr):
+    if arr.count(6)>0 and arr.count(9)>0:
+        if arr.index(6) < arr.index(9):
+            return sum(arr[:arr.index(6)])
+        else:
+            return sum(arr)
+    else:
+        return sum(arr)
+
+def spy007(arr):
+    if arr.count(0) >= 2 and arr.count(7)>=1:
+        if arr.index(0,2) < len(arr[:arr.index(0,2)])+arr[arr.index(0,2):].index(7):
+            return True
+        else:
+            return False
+    else:
+        return False
+    
+
+def simpleNumCount(n):
+    count = 0
+    flag = False
+    for i in range(1,n):
+        for j in range(1,i):
+            if i%j==0 and i!=0 and j!=0 and i!=1 and j!=1 and i!=j:
+                flag=False    
+                break
+            else:
+                flag=True
+        if flag:
+            count+=1
+    return count
+        
+print(simpleNumCount(24))
+
+
 
 
 
