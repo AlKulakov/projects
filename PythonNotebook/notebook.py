@@ -345,7 +345,9 @@ def simpleNumCount(n):
         
 print(simpleNumCount(24))
 
-
+def printbig(a):
+    print(f"  {a}  \n {a} {a} \n{a}{a}{a}{a}{a}\n{a}   {a}\n{a}{a}{a}{a}{a}")
+printbig("o")
 
 
 
