@@ -231,3 +231,48 @@ def function_name(): #Function definition
 	'''
 	print("dfg")
 
+return 10 in [213, 10, 23]
+
+def pig_latin(word):
+	firstLetter = word[0]
+	if firstLetter in "aeuoi":
+		word = word + 'ay'
+	else:
+		word = word[1:] + firstLetter + "ay"
+	return word
+
+def myfun(*args): # Can be inputed many arguments | args - tuple
+	return sum(args) * 0.05
+myfun(10,213,1231)
+
+def mfun(**kwargs):  #input arguments into the dictionary
+	if 'source' in kwargs:
+		return kwargs['source']
+
+mfun(source='192.168.1.10')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
