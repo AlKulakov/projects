@@ -217,3 +217,17 @@ mystr = "Hello world"
 newlist = [character for character in mystr] # Creates list with string's character
 
 newlst = [i**2 for i in range(1,10) if i%2==0] # Creates list with squares numbers 1-10 range
+
+#########################################################
+					#Methods
+
+help(value.method) #Get documentation
+
+def function_name(): #Function definition
+	'''
+	DOCSTRING: function info
+	INPUT: No
+	OUTPUT: dfg
+	'''
+	print("dfg")
+
