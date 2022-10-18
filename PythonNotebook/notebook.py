@@ -348,12 +348,46 @@ print(simpleNumCount(24))
 def printbig(a):
     print(f"  {a}  \n {a} {a} \n{a}{a}{a}{a}{a}\n{a}   {a}\n{a}{a}{a}{a}{a}")
 printbig("o")
+##############################################################
+						#map, filter, lambda
+lsst = [1,2,3,4,5]
+def sqt(x):
+	return x**(1/2)
 
+for items in map(sqt, lsst): #Allow you to use list in variebles functions
+	print(items)
 
+list(map(sqt, lsst))
 
+nums = [1,2,3,4,5,6,7,8,9]
 
+def check_even(num): 
+	return num%2==0
 
+print(list(filter(check_even, nums))) #returns elements with True value
 
+sq = lambda num: num ** 2 # Anonimous lambda functions
+
+sq(3)
+
+list(map(lambda num: num ** 2, nums))
+
+###################################################################
+						#scope
+
+'''
+LEGB law:
+
+Local - in def or lambda, not identified as global
+Enclosing functions locals - local names in def or lambda levels, from closest to further 
+G - global module variebles
+B - Built-in names in python (open, range ...)
+'''
+x = 50
+def sc():
+	global x #Global variable in def function
+	x = 50
+	return x
 
 
 
