@@ -389,6 +389,71 @@ def sc():
 	x = 50
 	return x
 
+class NameOfClass(): # Class definition
+
+	def __init__(self, var1, var2): # Constructor
+		self.var1 = var1
+		self.var2 = var2
+
+	def methodd(self): # Some method
+		pass
+
+class SampleWor():
+	def __init__(self, atribute1):
+			self.atribute1 = atribute1 # Giving attribute to class object
+
+new_sample = SampleWor(atribute1="Atr1") - # Object defining
+
+
+class Dog():
+	species = 'mammal' #Unchanged atribute
+	def __init__(self, breed, name, spots):
+		self.breed = breed
+		self.name = name
+
+	def bark(self, number):
+		print(f"WOOF!{self.name} {number}") # There is no need to put self before input function arguments
+
+
+frankie = dog("Lab", "Frankie")
+
+frankie.bark(12)
+
+class Circle():
+	PI = 3.14
+
+	def __init__(self, radius=1):
+		self.radius = radius
+		self.area = radius*radius*Circle.PI # self can be replaced with class name
+	def get_circle_length(self):
+		return self.radius*self.PI*2
+
+mycircle = Circle(12)
+
+mycircle.get_circle_length()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
