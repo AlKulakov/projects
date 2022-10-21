@@ -432,9 +432,31 @@ mycircle = Circle(12)
 
 mycircle.get_circle_length()
 
+class Animal():
+    
+    def __init__(self):
+        print("Animal created")
+    
+    def who_am_i(self):
+        print("I am an animal")
+    def eat(self):
+        print("i am eating")
 
+class Dog(Animal): # Dog extends Animal
+    def __init__(self):
+        Animal.__init__(self) #Constructor of extended class
+        print("Dog created")
+    def who_am_i(self):
+        print("I am a dog")
+    def bark(self):
+        print("WOOF")
+my_animal = Animal()
 
+my_animal.who_am_i()
 
+mydog = Dog()
+
+mydog.who_am_i()
 
 
 
