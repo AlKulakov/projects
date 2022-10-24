@@ -166,6 +166,7 @@ for key,value in dicti.items(): # Dictionaries encounter
 					#WHILE
 
 while True:
+    break
 	print("hsldhfd")
 else:					#Else can be used with while
 	print("abc")
@@ -185,7 +186,7 @@ for element in enumerate(word): # Creates tuples with index and value
 zip(listValue, mylist) # Unite 2 or more lists in tuples
 
 for item in zip(listValue, mylist):
-	print item
+	print(item)
 
 'x' in ['x', 'y', 'z']
 
@@ -231,7 +232,7 @@ def function_name(): #Function definition
 	'''
 	print("dfg")
 
-return 10 in [213, 10, 23]
+ # return 10 in [213, 10, 23]
 
 def pig_latin(word):
 	firstLetter = word[0]
@@ -458,12 +459,29 @@ mydog = Dog()
 
 mydog.who_am_i()
 
+# pip install [packagename] - установка пакетов
+
+#
+try:
+    f = open("test.txt", "w")
+    f.write("Записываем строку в файл")
+except TypeError:
+    print("Ощибка типов")
+except OSError:
+    print("Ошибка OS")
+finally:
+    print("В любом случае")
 
 
-
-
-
-
+while True:
+    try:
+        string = int(input("Введите число"))
+    except:
+        print("Это не число")
+        continue
+    else:
+        print("Спасибо, что ввели число")
+        break
 
 
 

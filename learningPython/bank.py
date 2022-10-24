@@ -1,14 +1,29 @@
 class BankClient():
     
     def __init__(self, name, balance):
+    '''
+    DOCSTRING: Конструктор класса клиента банка
+    INPUT: Имя, баланс
+    OUTPUT: Нет
+    '''
         self.name = name
         self.balance = balance
     
     def deposit(self, amount=0):
+    '''
+    DOCSTRING: Функция депозит
+    INPUT: Сумма
+    OUTPUT: Нет
+    '''
         self.balance += amount
         print(f"Деньги зачислены в количестве {amount}")
     
     def withdraw(self, amount=0):
+    '''
+    DOCSTRING: Функция вывода
+    INPUT: Сумма
+    OUTPUT: Нет
+    '''
         if self.balance >= amount:
             self.balance-=amount
             print(f"Деньги сняты в количестве {amount}")
@@ -16,6 +31,11 @@ class BankClient():
             print("Недостаточно средств")
     
     def show_balance(self):
+    '''
+    DOCSTRING: Функция показа баланса
+    INPUT: Нет
+    OUTPUT: Баланс
+    '''
         return self.balance
 
 client = BankClient("Aleksandr", 1000)
