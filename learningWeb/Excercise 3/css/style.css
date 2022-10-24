@@ -1,0 +1,51 @@
+* {
+     /*Придание характеристик ко всему*/
+}
+body { /* Применение характеристик к тегам h1*/
+    background-color: transparent; /*Прозрачный фон*/
+    width: 70%;
+}
+.text_1 { /*Применение характеристик к классу*/
+    background-image: url(../img/fon.jpg); /* Загрузка изображений*/
+    background-repeat:no-repeat;
+    background-size: cover;
+    padding-top: 54px;
+    padding-right: 54px;
+    padding-bottom: 54px;
+    padding-left: 54px;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-left-width: 4px;
+    border-bottom-width: 4px;
+}
+#text_2 {
+    color: blue;
+    border: 5px double rgb(245, 5, 5); /* Сделать границу толщиной 5 пикселя, стиля double и красного цвета*/
+    margin: 20px 20px 20px 20px;
+    border-radius: 20px; /* Скругление по углам*/
+    font-family: monospace; /*Шрифт*/
+    font-size: 15px;
+    font-weight: lighter; /*Выделение букв, т.е. болд и тд*/
+    line-height: 100px; /*Расстояние между строками*/
+    text-align: justify; /*Положение текста*/
+    text-decoration: underline;
+}
+#title_1 { /* Применение к идентификатору*/
+    color: blue;
+    font-family: Tahoma;
+
+}
+
+div[Text] { /* Обращение к атрибуту тега*/
+    color: red;
+}
+/*В css все работает сверху вниз*/
+div[Text="text"] { /* Обращение к атрибуту тега по содержанию атрибута*/
+    color: red;
+}
+a {
+    text-transform: uppercase;
+}
+ul {
+    list-style: none;
+}

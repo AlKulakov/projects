@@ -1,0 +1,14 @@
+.circle div{
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+}
+.Red {
+    background-color: red;
+}
+.Yellow {
+    background-color: yellow;
+}
+.Green {
+    background-color: Green;
+}
