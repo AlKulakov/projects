@@ -1,0 +1,73 @@
+:root {
+    --gutter: 15px;
+}
+*, *:before, *:after {
+    box-sizing: inherit; /*Наследование*/
+}
+html{
+    box-sizing: border-box;
+}
+body, p, h1, h2, h3, ul, ol {
+    margin:0px;
+    padding: 0px;
+}
+.header {
+    background-color: rgb(230, 204, 170);
+}
+.container {
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    border-radius: 20px 20px 0 0;
+}
+.raw {
+    display: flex;
+    flex-wrap: wrap;
+}
+.raw > div { /*Установить что-то для вложенных элементов*/
+    padding: 10px;
+    margin: 5px auto;
+    background-color: aqua;
+    border: 1px solid black;
+}
+.col-3 {
+    width: calc(25% - var(--gutter));
+}
+.col-6 {
+    width: calc(50% - var(--gutter));
+}
+.col-12 {
+    width: calc(100% - var(--gutter));
+}
+.col-4 {
+    width: calc(33.333333333% - var(--gutter));
+}
+
+@media screen and (max-width: 992px) { /*Запрос для экранов меньше чем 992*/
+    .container {
+        max-width: 100%;
+    }
+    .col-lg-3 {
+        width: calc(25% - var(--gutter));
+    }
+    .col-lg-6 {
+        width: calc(50% - var(--gutter));
+    }
+    .col-lg-12 {
+        width: calc(100% - var(--gutter));
+    }
+    .col-lg-4 {
+        width: calc(33.333333333% - var(--gutter));
+    }
+}
+@media screen and (max-width: 768px) { /*Запрос для экранов меньше чем 992*/
+    body {
+        background-color: black;
+    }
+}
+@media screen and (max-width: 576px) { /*Запрос для экранов меньше чем 992*/
+    body {
+        background-color: rgb(110, 97, 97);
+    }
+}
