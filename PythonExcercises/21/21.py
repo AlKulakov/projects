@@ -78,6 +78,7 @@ class Cash():
         self.amount-=self.bet
         self.dealer_cash+=self.bet
         print("Поздравляем, вы проиграли!")
+
 def take_bet():
     while True
         try:
