@@ -20,8 +20,17 @@ public class Launcher extends JFrame {
         game.start();
         setImages();
         initilizePanel();
+        initilizeLabel();
         initilizeFrame();
     }
+
+    private void initilizeLabel() {
+        JLabel label = new JLabel("Welcome!");
+        Font font = new Font("Aerial", Font.BOLD, 22);
+        label.setFont(font);
+        add(label, BorderLayout.SOUTH);
+    }
+
     private void initilizePanel() {
         panel = new JPanel() {
             protected void paintComponent(Graphics g) {
