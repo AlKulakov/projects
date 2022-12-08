@@ -35,4 +35,7 @@ public class Range {
                         list.add(around);
         return list;
     }
+    static int getSquare(){
+        return size.x * size.y;
+    }
 }

@@ -12,6 +12,7 @@ public class Launcher extends JFrame {
     private final int BOMBS_COUNT = 20;
 
     private JPanel panel;
+    private JLabel label;
     public static void main(String[] args) {
         new Launcher();
     }
@@ -25,7 +26,7 @@ public class Launcher extends JFrame {
     }
 
     private void initilizeLabel() {
-        JLabel label = new JLabel("Welcome!");
+        label = new JLabel(getMessage());
         Font font = new Font("Aerial", Font.BOLD, 22);
         label.setFont(font);
         add(label, BorderLayout.SOUTH);
@@ -54,6 +55,7 @@ public class Launcher extends JFrame {
                     case MouseEvent.BUTTON2: game.start(); break;
                     case MouseEvent.BUTTON3: game.pressRightButton(coord); break;
                 }
+                label.setText(getMessage());
                 panel.repaint();
             }
         });
@@ -77,5 +79,17 @@ public class Launcher extends JFrame {
         String file_name = "/img/" + imageName + ".png";
         ImageIcon icon = new ImageIcon(getClass().getResource(file_name));
         return icon.getImage();
+    }
+    private String getMessage (){
+        switch(game.getState()){
+            case BOMBED: return "You got bombed!";
+            case WINNER: return "Gratz! All bombs have been marked!";
+            case PLAYED:
+            default:
+                if(game.getTotalFlaged()==0)
+                    return "Welcome!";
+                else return "Think twice! Flagged " + game.getTotalFlaged() + " of " + game.getTotalBombs() + " bombs.";
+        }
+
     }
 }
