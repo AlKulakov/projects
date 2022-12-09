@@ -9,7 +9,7 @@ public class Launcher extends JFrame {
     private final int IMAGE_SIZE = 50;
     private final int ROWS = 10;
     private final int COLS = 15;
-    private final int BOMBS_COUNT = 20;
+    private final int BOMBS_COUNT = 5;
 
     private JPanel panel;
     private JLabel label;
@@ -88,7 +88,7 @@ public class Launcher extends JFrame {
             default:
                 if(game.getTotalFlaged()==0)
                     return "Welcome!";
-                else return "Think twice! Flagged " + game.getTotalFlaged() + " of " + game.getTotalBombs() + " bombs.";
+                else return "You flagged " + game.getTotalFlaged() + " of " + game.getTotalBombs() + " bombs.";
         }
 
     }

@@ -57,4 +57,29 @@ public class Flag {
     }
 
 
+    void setBombedToBox(Coord coord) {
+        flagMap.set(coord, Box.BOMBED);
+    }
+
+    void setOpenedToClosedBox(Coord coord) {
+        if(flagMap.get(coord) == Box.CLOSED)
+            flagMap.set(coord, Box.OPENED);
+    }
+
+    public void setNoBombToFlagedBox(Coord coord) {
+        if(Box.FLAGED == flagMap.get(coord)){
+            flagMap.set(coord, Box.NOBOMB);
+
+        }
+    }
+
+    int getCountOfFlagedBoxesAround(Coord coord) {
+        int count = 0;
+        for (Coord around : Range.getCoordsAround(coord)){
+            if (flagMap.get(around) == Box.FLAGED){
+                count ++;
+            }
+        }
+        return count;
+    }
 }
