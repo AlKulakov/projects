@@ -1,7 +1,5 @@
 package org.example;
 
-import org.example.model.Coord;
-import org.example.model.Figure;
 import org.example.ui.Window;
 
 public class Tetris {
