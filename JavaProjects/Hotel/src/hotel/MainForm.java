@@ -458,6 +458,7 @@ public class MainForm extends javax.swing.JFrame {
             openClientsForm.setVisible(true);
             openClientsForm.setLocationRelativeTo(null);
             openClientsForm.pack();
+            openClientsForm.setExtendedState(MAXIMIZED_BOTH);
             OpenClientFormsCount++;
         }
     }//GEN-LAST:event_ClientMenuItemActionPerformed
@@ -468,7 +469,9 @@ public class MainForm extends javax.swing.JFrame {
             openRoomsForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             openRoomsForm.setVisible(true);
             openRoomsForm.setLocationRelativeTo(null);
+            
             openRoomsForm.pack();
+            openRoomsForm.setExtendedState(MAXIMIZED_BOTH);
             OpenRoomsFormsCount++;
         }// TODO add your handling code here:
     }//GEN-LAST:event_RoomsMenuItemActionPerformed
@@ -479,7 +482,9 @@ public class MainForm extends javax.swing.JFrame {
             openBookedRooms.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             openBookedRooms.setVisible(true);
             openBookedRooms.setLocationRelativeTo(null);
+            
             openBookedRooms.pack();
+            openBookedRooms.setExtendedState(MAXIMIZED_BOTH);
             OpenBookedRoomsFormsCount++;
         }        // TODO add your handling code here:
     }//GEN-LAST:event_BookedRoomsMenuItemActionPerformed

@@ -76,7 +76,7 @@ public class Rooms {
         }
     }
     
-    public boolean addRoom(int number, int type, String phone){
+    public boolean addRoom(int number, int type, String phone, String status){
         PreparedStatement preparedStatement;
         ResultSet resultSet;
         String addQuery = "INSERT INTO `rooms`(`room_number`, `type`, `phone`, `reserve_status`) VALUES (?, ?, ?, ?)";
@@ -85,7 +85,7 @@ public class Rooms {
             preparedStatement.setInt(1, number);
             preparedStatement.setInt(2, type);
             preparedStatement.setString(3, phone);
-            preparedStatement.setString(4, "Свободно");
+            preparedStatement.setString(4, status);
             
                 return preparedStatement.executeUpdate() > 0;
             
@@ -94,19 +94,17 @@ public class Rooms {
         }
     }
     
-    public boolean editClient(int id, String firstName, String fatherName,String lastName, String phone, String email){
+    public boolean editRoom(int number, int type, String phone, String isReserved){
         PreparedStatement preparedStatement;
         ResultSet resultSet;
-        String updateQuery = "UPDATE `clients` SET `first_name`=?,"
-                + "`father_name`=?,`second_name`=?,`phone_number`=?,`e_mail`=? WHERE `id`= ?";
+        String updateQuery = "UPDATE `rooms` SET "
+                + "`type`=?,`phone`=?, `reserve_status`=? WHERE `room_number`= ?";
         try {
             preparedStatement = connection.getConnection().prepareStatement(updateQuery);
-            preparedStatement.setString(1, firstName);
-            preparedStatement.setString(2, fatherName);
-            preparedStatement.setString(3, lastName);
-            preparedStatement.setString(4, phone);
-            preparedStatement.setString(5, email);
-            preparedStatement.setInt(6, id);
+            preparedStatement.setInt(1, type);
+            preparedStatement.setString(2, phone);
+            preparedStatement.setString(3, isReserved);
+            preparedStatement.setInt(4, number);
             return (preparedStatement.executeUpdate() > 0);
         } catch (SQLException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,13 +112,13 @@ public class Rooms {
         }
     }
     
-    public boolean removeClient(int id){
+    public boolean removeRoom(int number){
         PreparedStatement preparedStatement;
         ResultSet resultSet;
-        String deleteQuery = "DELETE FROM `clients` WHERE `id`=?";
+        String deleteQuery = "DELETE FROM `rooms` WHERE `room_number`=?";
         try {
             preparedStatement = connection.getConnection().prepareStatement(deleteQuery);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, number);
             return (preparedStatement.executeUpdate() > 0);
         } catch (SQLException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);

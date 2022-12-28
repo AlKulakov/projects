@@ -7,6 +7,7 @@ package hotel;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -52,6 +53,8 @@ public class OpenRoomsForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         typeComboBox = new javax.swing.JComboBox<>();
         infoButton = new javax.swing.JButton();
+        phoneNumberLabel1 = new javax.swing.JLabel();
+        statusComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomsTable = new javax.swing.JTable();
         resultLabel = new javax.swing.JLabel();
@@ -199,39 +202,19 @@ public class OpenRoomsForm extends javax.swing.JFrame {
             }
         });
 
+        phoneNumberLabel1.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
+        phoneNumberLabel1.setForeground(new java.awt.Color(51, 51, 0));
+        phoneNumberLabel1.setText("Статус");
+
+        statusComboBox.setBackground(new java.awt.Color(255, 255, 204));
+        statusComboBox.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
+        statusComboBox.setForeground(new java.awt.Color(51, 51, 0));
+        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Свободно", "Занято" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(phoneNumberLabel)
-                                .addGap(2, 2, 2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(roomLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phoneNumberField)
-                            .addComponent(roomField)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                            .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(typeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(typeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(1, 1, 1)
-                        .addComponent(infoButton)))
-                .addGap(25, 25, 25))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -241,6 +224,42 @@ public class OpenRoomsForm extends javax.swing.JFrame {
                         .addGap(88, 88, 88)
                         .addComponent(refreshButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(phoneNumberLabel1)
+                        .addGap(4, 4, 4)
+                        .addComponent(statusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(phoneNumberLabel)
+                                        .addGap(2, 2, 2))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(roomLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(phoneNumberField)
+                                    .addComponent(roomField)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                    .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(typeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(typeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(1, 1, 1)
+                                .addComponent(infoButton)))))
+                .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,15 +271,20 @@ public class OpenRoomsForm extends javax.swing.JFrame {
                     .addComponent(roomLabel)
                     .addComponent(roomField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(typeLabel)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(infoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(typeLabel)
+                        .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(phoneNumberLabel)
                     .addComponent(phoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(105, 105, 105)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phoneNumberLabel1)
+                    .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
                     .addComponent(editButton))
@@ -281,11 +305,36 @@ public class OpenRoomsForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Номер комнаты", "Тип", "Телефон"
+                "Номер", "Тип", "Телефон", "Статус"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        jScrollPane1.getViewport().setBackground(new Color(255,255,204));
+        headerRenderer = (DefaultTableCellRenderer)
+        roomsTable.getTableHeader().getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(javax.swing.JLabel.CENTER);
+        headerRenderer.setBackground(new Color(255, 204, 102));
         roomsTable.setGridColor(new java.awt.Color(255, 204, 102));
+        DefaultTableCellRenderer rendar = new DefaultTableCellRenderer();
+        rendar.setHorizontalAlignment(jLabel1.CENTER);
+        for(int i = 0; i<4; i++){
+            roomsTable.getColumnModel().getColumn(i).setCellRenderer(rendar);
+        }
+        roomsTable.setRowHeight(30);
         roomsTable.setSelectionBackground(new java.awt.Color(255, 204, 102));
+        roomsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                roomsTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(roomsTable);
         jScrollPane1.getViewport().setBackground(new Color(255,255,204));
 
@@ -305,8 +354,8 @@ public class OpenRoomsForm extends javax.swing.JFrame {
                     .addGroup(dataPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(resultLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 911, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71))
         );
         dataPanelLayout.setVerticalGroup(
@@ -413,8 +462,8 @@ private void wrongDataDelay(){
         }        // TODO add your handling code here:
     }//GEN-LAST:event_phoneNumberFieldKeyPressed
     private void refreshTable(){
-        roomsTable.setModel(new DefaultTableModel(null, new Object[]{"ID","Имя","Отчество","Фамилия","Телефон","E-Mail"}));
-        //room.fillRoomTable(roomsTable);
+        roomsTable.setModel(new DefaultTableModel(null, new Object[]{"Номер","Тип","Телефон","Статус"}));
+        room.fillRoomsTable(roomsTable);
     }
     public boolean isNumeric(String number){
         try{
@@ -426,7 +475,29 @@ private void wrongDataDelay(){
         }
     }
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        
+        boolean numberAccept = false;
+        int number = 0;
+        try{
+            number = Integer.parseInt(roomField.getText());
+        numberAccept = true;
+        }
+        catch(NumberFormatException e){
+            wrongDataDelay();
+            wrongFieldDelay(roomField);
+            
+        }
+        String phone = phoneNumberField.getText();
+        int type = Integer.parseInt(typeComboBox.getSelectedItem().toString());
+        if(numberAccept == true && isNumeric(phone) && phone.length()==10){
+            if(room.editRoom(number, type, phone, statusComboBox.getSelectedItem().toString())){
+                resultLabel.setText("Данные изменены!");
+                refreshTable();
+            }
+            else wrongDataDelay();
+        } else {
+            wrongDataDelay();
+            wrongFieldDelay(phoneNumberField);
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
@@ -443,9 +514,13 @@ private void wrongDataDelay(){
         }
         String phone = phoneNumberField.getText();
         int type = Integer.parseInt(typeComboBox.getSelectedItem().toString());
+        String status = statusComboBox.getSelectedItem().toString();
         if(numberAccept == true && isNumeric(phone) && phone.length()==10){
-            if(room.addRoom(number, type, phone))
+            if(room.addRoom(number, type, phone, status)){
                 resultLabel.setText("Комната добавлена!");
+                clearFields();
+                refreshTable();
+            }
             else wrongDataDelay();
         } else {
             wrongDataDelay();
@@ -454,11 +529,31 @@ private void wrongDataDelay(){
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-            
+        int number = 0;
+        try{     
+            number = Integer.parseInt(roomField.getText().toString());
+        } catch(NumberFormatException e){
+            wrongFieldDelay(roomField);
+            wrongDataDelay();
+        }
+        if(room.removeRoom(number)){
+            resultLabel.setText("Номер удален!");
+            clearFields();
+            refreshTable();
+        }
+        else {
+            wrongDataDelay();
+            wrongFieldDelay(roomField);
+        }
     }//GEN-LAST:event_removeButtonActionPerformed
-
+    private void clearFields(){
+         roomField.setText("");
+         phoneNumberField.setText("");
+         typeComboBox.setSelectedIndex(0);
+         statusComboBox.setSelectedIndex(0);
+    }
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-
+          clearFields();
         // TODO add your handling code here:
     }//GEN-LAST:event_clearButtonActionPerformed
 
@@ -474,6 +569,15 @@ private void wrongDataDelay(){
         
         // TODO add your handling code here:
     }//GEN-LAST:event_infoButtonActionPerformed
+
+    private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) roomsTable.getModel();
+        int rowIndex = roomsTable.getSelectedRow();
+        roomField.setText(model.getValueAt(rowIndex, 0).toString());
+        typeComboBox.setSelectedItem(Integer.parseInt(model.getValueAt(rowIndex, 1).toString()));
+        phoneNumberField.setText(model.getValueAt(rowIndex, 2).toString());
+        statusComboBox.setSelectedItem(model.getValueAt(rowIndex, 3).toString());        // TODO add your handling code here:
+    }//GEN-LAST:event_roomsTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -524,12 +628,14 @@ private void wrongDataDelay(){
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField phoneNumberField;
     private javax.swing.JLabel phoneNumberLabel;
+    private javax.swing.JLabel phoneNumberLabel1;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton removeButton;
     private javax.swing.JLabel resultLabel;
     private javax.swing.JTextField roomField;
     private javax.swing.JLabel roomLabel;
     private javax.swing.JTable roomsTable;
+    private javax.swing.JComboBox<String> statusComboBox;
     private javax.swing.JComboBox<String> typeComboBox;
     private javax.swing.JLabel typeLabel;
     // End of variables declaration//GEN-END:variables
