@@ -1,0 +1,64 @@
+:root {
+    --gutter: 15px;
+
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 18px;
+}
+body,p,h1,h2,h3,ul,ol {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: coral;
+}
+.container{
+    background-color: burlywood;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row > div {
+    padding: 15px;
+    margin: 3px auto;
+    background-color: brown;
+    border: 1px solid black;
+}
+.col-3{
+    width: calc(25% - var(--gutter));
+
+}
+.col-6{
+    width: calc(50% - var(--gutter));
+    
+}
+.col-12{
+    width: calc(100% - var(--gutter));
+    
+}
+@media screen and (max-width:992px){
+    .container {
+        max-width: 100%;
+    } 
+}
+@media screen and (max-width:768px){ /*lg*/
+    .col-3 {
+        width: calc(50% - var(--gutter));
+    }
+}
+@media screen and (max-width:576px){ /*md*/
+    .col-3, .col-6 {
+        width: calc(100% - var(--gutter));
+    }
+}

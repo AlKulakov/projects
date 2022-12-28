@@ -1,0 +1,24 @@
+@media screen and (max-width: 992px){/*lg*/
+    .col-lg-3{
+        width: calc(25% - var(--gutter));
+    }
+    .col-lg-4{
+        width: calc(33.333% - var(--gutter));
+    }
+    .col-lg-6{
+        width: calc(50% - var(--gutter));
+    }
+} 
+@media screen and (max-width: 768px){/*md*/
+    .col-md-4{
+        width: calc(33.333% - var(--gutter));
+    }
+    .col-md-6{
+        width: calc(50% - var(--gutter));
+    }
+}
+@media screen and (max-width: 576px){/*sm*/
+    .col-sm-6{
+        width: calc(50% - var(--gutter));
+    }
+} 
