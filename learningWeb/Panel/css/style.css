@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+    background-color: rgb(48, 44, 53);
+}
+.panel-inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.panel-content{
+    display: flex;
+    list-style: none;
+    margin: 50px;
+    padding: 0;
+}
+.panel-content li{
+    display: flex;
+    list-style: none;
+    padding: 10px auto;
+    margin: 0 30px;
+    justify-content: center;
+    color: white;
+}
+.panel-content li ul li:nth-child(1) {
+    color: rgb(145, 74, 26);
+    font-size: 48px;
+    font-weight: bold;
+    font-family: cursive;
+}
+.panel-content li ul li:nth-child(2) {
+    text-transform: uppercase;
+    font-family: Apple Chancery, cursive;
+}
