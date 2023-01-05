@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+.panel {
+
+}
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+.inner-panel {
+    background-color: rgb(224, 247, 224);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text {
+    margin: auto 80px;
+    max-width: 400px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: green;
+}
+p{
+    font-size: 20px;
+    text-align: justify;
+}
+h1 {
+    font-weight: normal;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+.fa {
+}
+a {
+    padding: 20px 24px;
+    margin: 30px auto;
+    color: green;
+    background-color: rgb(224, 247, 224);
+    border: 1px solid green;
+    border-radius: 40px;
+    font-size: 22px;
+    text-align: center;
+}
+.fa-pencil {
+
+}
+.fa-facebook {
+}
+a:hover {
+    color: rgb(224, 247, 224);
+    background-color: green;
+    border: 1px solid rgb(224, 247, 224);
+}
+.fa-file-word-o{
+    color: green;
+    font-size: 190px;
+}
