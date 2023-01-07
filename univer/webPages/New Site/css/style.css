@@ -1,0 +1,273 @@
+@font-face {
+    font-family: 'Varna';
+    src: url('../fonts/Varna-Bold.eot');
+    src: local('Varna Bold'), local('Varna-Bold'),
+        url('../fonts/Varna-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Varna-Bold.woff2') format('woff2'),
+        url('../fonts/Varna-Bold.woff') format('woff'),
+        url('../fonts/Varna-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Varna';
+    src: url('../fonts/Varna-Regular.eot');
+    src: local('../fonts/Varna Regular'), local('Varna-Regular'),
+        url('../fonts/Varna-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Varna-Regular.woff2') format('woff2'),
+        url('../fonts/Varna-Regular.woff') format('woff'),
+        url('../fonts/Varna-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Montserrat-bold';
+    src: url('../fonts/static/Montserrat-Bold.ttf');
+}
+@font-face {
+    font-family: 'Choco';
+    src: url('../fonts/Quite\ Chocolatey.ttf');
+}
+@font-face {
+    font-family: ptserif;
+    src: url(../fonts/PT_Serif-Web-Regular.ttf);
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+.menu {
+    margin: 0;
+    height: 690px;
+    background-image: url("../img/menuBackground1.png");
+    background-size: cover;
+}
+.container {
+    margin: 0 auto;
+    width: 1011px;
+}
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+}
+.menu-title {
+    font-family: 'Choco';
+    margin-top: 30px;
+    font-size: 88px;
+    color: white;
+}
+.page-buttons {
+    margin: 0;
+    padding: 0;
+    margin-top: 60px;
+    display: flex;
+    list-style: none;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+}
+.page-buttons li a {
+    text-decoration: none;
+    color: inherit;
+    margin-left: 12px;
+    padding: 12px 18px;
+    color: white;
+    margin-bottom: 0;
+    
+}
+.page-buttons li a:hover {
+    background-color: rgb(211, 115, 26);
+    color: white;
+    border-radius: 5px;
+}
+.menu-info {
+    margin: 0;
+    padding: 0;
+}
+.first-string {  
+    color: rgb(211, 115, 26);
+    font-family: 'Montserrat-bold';
+    line-height: 10px;
+    font-size: 90px;
+
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.second-string {  
+    color: white;
+    font-family: 'Montserrat-bold';
+    line-height: 10px;
+    font-size: 90px;
+
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.menu-text {
+    color: white;
+    font-family: ptserif;
+    font-size: 20px;
+    margin-top:40px;
+    max-width: 500px;
+    line-height: 28px;
+}
+.services {
+    height: 484px;
+}
+.services-inner {
+}
+.services-title {
+    font-family: 'Montserrat-bold';
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-right: 0;
+    margin-bottom: 72px;
+    margin-left: 20px;
+}
+.services-items {
+    display: flex;
+    margin: 0;
+    justify-content: space-around;
+}
+.item {
+    max-width: 200px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+.item .fa {
+    font-size: 150px;
+    color: rgb(211, 115, 26);
+    margin-bottom: 22px;
+}
+.text {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    line-height: 28px;
+    color: rgb(68, 68, 68);
+}
+.team {
+    background: black;
+    background: radial-gradient(circle, rgba(47,47,47,1) 0%, rgba(0,0,0,1) 100%);
+    height: 120px;
+}
+.team-inner {
+    display: flex;
+    justify-content: space-between;
+}
+.team-text {
+    font-size: 20px;
+    font-family: cursive;
+    color: white;
+    max-width: 600px;
+    margin: 15px 0 0 20px;
+}
+.team-link {
+    text-decoration: none;
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 2.5px 50px;
+    background-color: rgb(211, 115, 26);
+    border-radius: 5px;
+    margin: 27px 0;
+}
+.team-link:hover{
+    background-color: white;
+    color: rgb(211, 115, 26);
+}
+.prices {
+    margin-top: 0;
+    height: 615px;
+    background-color: #efefef;
+}
+.prices-inner {
+    overflow: auto;
+    margin: 0;
+    text-align: center;
+}
+.prices-title {
+    margin-top: 60px;
+    text-transform: uppercase;
+    font-family: 'Montserrat-bold';
+    font-size:  50px;
+    color:rgb(68, 68, 68);
+
+}
+.price-items {
+    display: flex;
+    justify-content: space-around;
+}
+.price-item-list {
+    padding: 20px;
+    width: 320px;
+    height: 394px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 1, 1, 0.2);
+    background-color: white;
+    list-style: none;
+}
+
+.price-item-list li:not(:nth-child(6)) {
+    color:rgb(68, 68, 68);
+    font-family: 'ptserif';
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.price-item-list li:nth-child(2) {
+    font-size: 60px;
+    font-family: 'Montserrat-Bold';
+    color: rgb(211, 115, 26);
+}
+.price-item-list li:nth-child(1) {
+    margin-bottom: 15px;
+}
+.price-item-list li:nth-child(6) {
+    margin-top: 27px;
+}
+.price-item-list li a {
+    font-size: 22px;
+    font-family: 'Montserrat';
+    line-height: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 60px;
+    background-color: rgb(211, 115, 26);
+    color: white;
+    border-radius: 5px;
+}
+.price-item-list li a:hover {
+    background-color: #c62314;
+    color: white;
+}
+
+.bottom-fill {
+    height: 188px;
+    background: rgb(32,32,32);
+    background: linear-gradient(90deg, rgba(32,32,32,1) 0%, rgba(0,0,0,1) 43%, rgba(3,3,3,1) 100%);
+    margin: 0;
+}
+.bottom-fill-inner {
+    display: flex;
+    justify-content: space-between;
+}
+.sign {
+    color: rgb(211, 115, 26);
+    font-size: 20px;
+    font-family: ptserif;
+    margin: 0;
+    margin-top: 80px;
+}
+.bottom-title {
+    margin-top: 62px;
+    margin-bottom: 0;
+    color: rgb(211, 115, 26);
+    font-family: 'Choco';
+    font-size: 64px;
+}
