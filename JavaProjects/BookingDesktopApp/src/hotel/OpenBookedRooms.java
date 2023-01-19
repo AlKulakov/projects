@@ -7,6 +7,7 @@ package hotel;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,7 +22,8 @@ public class OpenBookedRooms extends javax.swing.JFrame {
     public OpenBookedRooms() {
         initComponents();
     }
-
+    static int x;
+    static int y;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +35,7 @@ public class OpenBookedRooms extends javax.swing.JFrame {
 
         mainPanel = new javax.swing.JPanel();
         dataPanel = new javax.swing.JPanel();
-        dataLabel = new javax.swing.JPanel();
+        dataMainPanel = new javax.swing.JPanel();
         idLabel = new javax.swing.JLabel();
         idField = new javax.swing.JTextField();
         clientIdLabel = new javax.swing.JLabel();
@@ -41,24 +43,25 @@ public class OpenBookedRooms extends javax.swing.JFrame {
         roomNumberLabel = new javax.swing.JLabel();
         roomNumberField = new javax.swing.JTextField();
         outDateLabel = new javax.swing.JLabel();
-        outDateField = new javax.swing.JTextField();
         inDateLabel = new javax.swing.JLabel();
-        inDateField = new javax.swing.JTextField();
         addButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         refreshButton = new javax.swing.JButton();
+        inDateChooser = new com.toedter.calendar.JDateChooser();
+        outDateChooser = new com.toedter.calendar.JDateChooser();
         resultLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         reservedRoomsTable = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        dataMainLabel = new javax.swing.JLabel();
+        dbLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
         nameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         mainPanel.setBackground(new java.awt.Color(255, 204, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -75,9 +78,10 @@ public class OpenBookedRooms extends javax.swing.JFrame {
 
         dataPanel.setBackground(new java.awt.Color(255, 255, 204));
         dataPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dataPanel.setFocusable(false);
 
-        dataLabel.setBackground(new java.awt.Color(255, 204, 102));
-        dataLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dataMainPanel.setBackground(new java.awt.Color(255, 204, 102));
+        dataMainPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         idLabel.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
         idLabel.setForeground(new java.awt.Color(51, 51, 0));
@@ -119,25 +123,9 @@ public class OpenBookedRooms extends javax.swing.JFrame {
         outDateLabel.setForeground(new java.awt.Color(51, 51, 0));
         outDateLabel.setText("Выселился:");
 
-        outDateField.setBackground(new java.awt.Color(255, 255, 204));
-        outDateField.setForeground(new java.awt.Color(51, 51, 0));
-        outDateField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                outDateFieldKeyPressed(evt);
-            }
-        });
-
         inDateLabel.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
         inDateLabel.setForeground(new java.awt.Color(51, 51, 0));
         inDateLabel.setText("Поселился:");
-
-        inDateField.setBackground(new java.awt.Color(255, 255, 204));
-        inDateField.setForeground(new java.awt.Color(51, 51, 0));
-        inDateField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                inDateFieldKeyPressed(evt);
-            }
-        });
 
         addButton.setBackground(new java.awt.Color(255, 255, 204));
         addButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -196,82 +184,92 @@ public class OpenBookedRooms extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout dataLabelLayout = new javax.swing.GroupLayout(dataLabel);
-        dataLabel.setLayout(dataLabelLayout);
-        dataLabelLayout.setHorizontalGroup(
-            dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dataLabelLayout.createSequentialGroup()
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dataLabelLayout.createSequentialGroup()
+        inDateChooser.setBackground(new java.awt.Color(255, 255, 204));
+        inDateChooser.setForeground(new java.awt.Color(51, 51, 0));
+        inDateChooser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        outDateChooser.setBackground(new java.awt.Color(255, 255, 204));
+        outDateChooser.setForeground(new java.awt.Color(51, 51, 0));
+        outDateChooser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout dataMainPanelLayout = new javax.swing.GroupLayout(dataMainPanel);
+        dataMainPanel.setLayout(dataMainPanelLayout);
+        dataMainPanelLayout.setHorizontalGroup(
+            dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataMainPanelLayout.createSequentialGroup()
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dataMainPanelLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                             .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(dataLabelLayout.createSequentialGroup()
+                    .addGroup(dataMainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dataLabelLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inDateLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(outDateLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(roomNumberLabel)
-                                .addComponent(clientIdLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(idLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(idField)
-                            .addComponent(clientIdField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(outDateField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inDateField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(roomNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dataMainPanelLayout.createSequentialGroup()
+                                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(roomNumberLabel)
+                                    .addComponent(clientIdLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(idLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(idField)
+                                    .addComponent(clientIdField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(roomNumberField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)))
+                            .addGroup(dataMainPanelLayout.createSequentialGroup()
+                                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inDateLabel)
+                                    .addComponent(outDateLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(outDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(25, 25, 25))
-            .addGroup(dataLabelLayout.createSequentialGroup()
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dataLabelLayout.createSequentialGroup()
+            .addGroup(dataMainPanelLayout.createSequentialGroup()
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dataMainPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1))
-                    .addGroup(dataLabelLayout.createSequentialGroup()
+                    .addGroup(dataMainPanelLayout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(refreshButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        dataLabelLayout.setVerticalGroup(
-            dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dataLabelLayout.createSequentialGroup()
+        dataMainPanelLayout.setVerticalGroup(
+            dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataMainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel)
                     .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clientIdLabel)
                     .addComponent(clientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(roomNumberLabel)
                     .addComponent(roomNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inDateLabel)
-                    .addComponent(inDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(outDateLabel)
-                    .addComponent(outDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(outDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
                     .addComponent(editButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(dataLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dataMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removeButton)
                     .addComponent(clearButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -283,7 +281,7 @@ public class OpenBookedRooms extends javax.swing.JFrame {
         resultLabel.setForeground(new java.awt.Color(255, 0, 0));
         resultLabel.setText(" ");
 
-        jScrollPane2.setBackground(new java.awt.Color(204, 255, 255));
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 204));
         jScrollPane2.setOpaque(false);
 
         reservedRoomsTable.setBackground(new java.awt.Color(255, 255, 204));
@@ -294,11 +292,11 @@ public class OpenBookedRooms extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Имя", "Отчество", "Фамилия", "Телефон +7", "E-Mail"
+                "ID", "ID клиента", "Номер комнаты", "Поселился", "Выселился"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -311,7 +309,6 @@ public class OpenBookedRooms extends javax.swing.JFrame {
         reservedRoomsTable.setSelectionBackground(new java.awt.Color(255, 204, 102));
         reservedRoomsTable.setSelectionForeground(new java.awt.Color(51, 51, 0));
         reservedRoomsTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        reservedRoomsTable.setSelectionMode();
         reservedRoomsTable.setShowGrid(false);
         reservedRoomsTable.setShowHorizontalLines(true);
         reservedRoomsTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -321,17 +318,18 @@ public class OpenBookedRooms extends javax.swing.JFrame {
         });
         DefaultTableCellRenderer rendar = new DefaultTableCellRenderer();
         rendar.setHorizontalAlignment(jLabel1.CENTER);
-        for(int i = 0; i<6; i++){
+        for(int i = 0; i<5; i++){
             reservedRoomsTable.getColumnModel().getColumn(i).setCellRenderer(rendar);
         }
         jScrollPane2.setViewportView(reservedRoomsTable);
+        reservedRoomsTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 0));
-        jLabel2.setText("Данные");
+        dataMainLabel.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        dataMainLabel.setForeground(new java.awt.Color(51, 51, 0));
+        dataMainLabel.setText("Данные");
 
-        jLabel3.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jLabel3.setText("База данных");
+        dbLabel.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        dbLabel.setText("База данных");
 
         javax.swing.GroupLayout dataPanelLayout = new javax.swing.GroupLayout(dataPanel);
         dataPanel.setLayout(dataPanelLayout);
@@ -344,15 +342,15 @@ public class OpenBookedRooms extends javax.swing.JFrame {
                         .addComponent(resultLabel))
                     .addGroup(dataPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(dataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dataMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
             .addGroup(dataPanelLayout.createSequentialGroup()
                 .addGap(146, 146, 146)
-                .addComponent(jLabel2)
+                .addComponent(dataMainLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(dbLabel)
                 .addGap(451, 451, 451))
         );
         dataPanelLayout.setVerticalGroup(
@@ -360,13 +358,13 @@ public class OpenBookedRooms extends javax.swing.JFrame {
             .addGroup(dataPanelLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(dataMainLabel)
+                    .addComponent(dbLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(dataPanelLayout.createSequentialGroup()
-                        .addComponent(dataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dataMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
                         .addComponent(resultLabel)))
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -470,99 +468,27 @@ public class OpenBookedRooms extends javax.swing.JFrame {
     }//GEN-LAST:event_clientIdFieldKeyPressed
 
     private void roomNumberFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_roomNumberFieldKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER || evt.getKeyCode() == KeyEvent.VK_DOWN)
-        inDateField.requestFocus();        // TODO add your handling code here:
-        else if(evt.getKeyCode() == KeyEvent.VK_UP){
-            clientIdField.requestFocus();
-        }            // TODO add your handling code here:
+        //if(evt.getKeyCode() == KeyEvent.VK_ENTER || evt.getKeyCode() == KeyEvent.VK_DOWN)
+        //inDateField.requestFocus();        // TODO add your handling code here:
+        //else if(evt.getKeyCode() == KeyEvent.VK_UP){
+        //    clientIdField.requestFocus();
+        //}            // TODO add your handling code here:
     }//GEN-LAST:event_roomNumberFieldKeyPressed
 
-    private void outDateFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outDateFieldKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER || evt.getKeyCode() == KeyEvent.VK_DOWN)
-        mailField.requestFocus();        // TODO add your handling code here:
-        else if(evt.getKeyCode() == KeyEvent.VK_UP){
-            inDateField.requestFocus();
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_outDateFieldKeyPressed
-
-    private void inDateFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inDateFieldKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER || evt.getKeyCode() == KeyEvent.VK_DOWN)
-        outDateField.requestFocus();        // TODO add your handling code here:
-        else if(evt.getKeyCode() == KeyEvent.VK_UP){
-            roomNumberField.requestFocus();
-        }                // TODO add your handling code here:
-    }//GEN-LAST:event_inDateFieldKeyPressed
-
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        client = new Client();
-        String firstName = clientIdField.getText();
-        String fatherName = roomNumberField.getText();
-        String secondName = inDateField.getText();
-        String phone = outDateField.getText();
-        String mail = mailField.getText();
-        if(dataConfirm(firstName, fatherName, secondName, phone, mail))
-        if(client.addClient(firstName, fatherName, secondName, phone, mail)){
-            resultLabel.setText("Клиент добавлен!");
-            fieldsClearing();
-            refreshTable();
-        }
-        else {
-            wrongDataDelay();
-        }
-        else {
-            wrongDataDelay();
-        }
+        
+        
     }//GEN-LAST:event_addButtonActionPerformed
 private void refreshTable(){
-        reservedRoomsTable.setModel(new DefaultTableModel(null, new Object[]{"Номер","Тип","Телефон","Статус"}));
-        reserveRoom.fillRoomsTable(reservedRoomsTable);
+        reservedRoomsTable.setModel(new DefaultTableModel(null, new Object[]{"ID","ID клиента","Номер комнаты","Поселился", "Выселился"}));
+        //reserveBookedRoom.fillRoomsTable(reservedRoomsTable);
     }
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        client = new Client();
-
-        int id = 0;
-        try{
-            id = Integer.parseInt(idField.getText());
-        } catch(NumberFormatException e){
-            wrongFieldDelay(idField);
-            wrongDataDelay();
-        }
-        String firstName = clientIdField.getText();
-        String fatherName = roomNumberField.getText();
-        String secondName = inDateField.getText();
-        String phone = outDateField.getText();
-        String mail = mailField.getText();
-        if(dataConfirm(firstName, fatherName, secondName, phone, mail))
-        if(client.editClient(id, firstName, fatherName, secondName, phone, mail)){
-            resultLabel.setText("Данные изменены!");
-            refreshTable();
-        }
-        else {
-            wrongDataDelay();
-            wrongFieldDelay(idField);
-        }
-        else {
-            wrongDataDelay();
-        }
+        
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        int id = 0;
-        try{
-            id = Integer.parseInt(idField.getText());
-        } catch(NumberFormatException e){
-            wrongFieldDelay(idField);
-            wrongDataDelay();
-        }
-        if(client.removeClient(id)){
-            resultLabel.setText("Клиент удален!");
-            fieldsClearing();
-            refreshTable();
-        }
-        else {
-            wrongDataDelay();
-            wrongFieldDelay(idField);
-        }
+        
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
@@ -580,10 +506,8 @@ private void refreshTable(){
         idField.setText(model.getValueAt(rowIndex, 0).toString());
         clientIdField.setText(model.getValueAt(rowIndex, 1).toString());
         roomNumberField.setText(model.getValueAt(rowIndex, 2).toString());
-        inDateField.setText(model.getValueAt(rowIndex, 3).toString());
-        outDateField.setText(model.getValueAt(rowIndex, 4).toString());
-        mailField.setText(model.getValueAt(rowIndex, 5).toString());
-
+        //inDateField.setText(model.getValueAt(rowIndex, 3).toString());
+        //outDateField.setText(model.getValueAt(rowIndex, 4).toString());
     }//GEN-LAST:event_reservedRoomsTableMouseClicked
 
     private void closeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseEntered
@@ -595,7 +519,7 @@ private void refreshTable(){
     }//GEN-LAST:event_closeButtonMouseExited
 
     private void closeButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMousePressed
-        MainForm.OpenClientFormsCount--;
+        MainForm.OpenBookedRoomsFormsCount--;
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_closeButtonMousePressed
 
@@ -649,20 +573,20 @@ private void refreshTable(){
     private javax.swing.JTextField clientIdField;
     private javax.swing.JLabel clientIdLabel;
     private javax.swing.JButton closeButton;
-    private javax.swing.JPanel dataLabel;
+    private javax.swing.JLabel dataMainLabel;
+    private javax.swing.JPanel dataMainPanel;
     private javax.swing.JPanel dataPanel;
+    private javax.swing.JLabel dbLabel;
     private javax.swing.JButton editButton;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel idLabel;
-    private javax.swing.JTextField inDateField;
+    private com.toedter.calendar.JDateChooser inDateChooser;
     private javax.swing.JLabel inDateLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JTextField outDateField;
+    private com.toedter.calendar.JDateChooser outDateChooser;
     private javax.swing.JLabel outDateLabel;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton removeButton;
@@ -671,4 +595,10 @@ private void refreshTable(){
     private javax.swing.JTextField roomNumberField;
     private javax.swing.JLabel roomNumberLabel;
     // End of variables declaration//GEN-END:variables
+
+    private void fieldsClearing() {
+        idField.setText("");
+        clientIdField.setText("");
+        roomNumberField.setText("");
+    }
 }
