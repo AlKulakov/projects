@@ -4,7 +4,7 @@
  */
 package com.mycompany.accounting;
 
-import com.mycompany.accounting.LoginForm;
+import com.mycompany.accounting.UI.LoginForm;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
