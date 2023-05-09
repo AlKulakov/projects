@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script src="js/table.js"></script>
+    <title>Список задач</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top ">
+        <a class="navbar-brand" href="index.html">
+            <div class="menu-title">
+            <img class="vk-name" src="img/VK_Monochrome_Compact_Logo.png">
+            <div class="page-name"><p>задачник</p></div>
+        </div>
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon fa fa-bars" area-hidden="true"></span>
+        </button>
+     <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav mr-4">
+            
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="tasks.html">Задания</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="#" style="border-bottom: 2px solid rgb(120, 120, 120); color:rgb(120, 120, 120);">Рейтинг</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-login-link" href="login.html">Вход</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-reg-link" href="reg.html">Регистрация</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="profile.html" style="display: none;">Профиль</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="exit.html" style="display: none;">Выход</a>
+              </li>
+          </ul>
+        </div>
+     </nav>
+    <div class="main-body">
+        <div class="container">
+            <div class="tab-view-body">
+                <h1 class="desc-header">Рейтинг сотрудников</h1>
+                <div class="tasks-header">
+                <div class="tab">
+                    <button class="buttonLink active" onclick="openCategory(event, 'firstCategory')">Рейтинг 1-ой категории</button>
+                    <button class="buttonLink" onclick="openCategory(event, 'secondCategory')">Рейтинг 2-ой категории</button>
+                    <button class="buttonLink" onclick="openCategory(event, 'thirdCategory')">Рейтинг 3-ой категории</button>
+                  </div>
+                  <div id="firstCategory" class="tabcontent" style="display: block">
+                    <span class="tab-title">Рейтинг 1-ой категории</span>
+                    <p>Ожидание...</p>
+                    
+                  </div>
+                  <div id="secondCategory" class="tabcontent">
+                    <span class="tab-title">Рейтинг 2-ой категории</span>
+                    <p>Ожидание...</p>
+                  </div>
+                  <div id="thirdCategory" class="tabcontent">
+                    <span class="tab-title">Рейтинг 3-ой категории</span>
+                    <p>Ожидание...</p>
+                  </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-sign">
+        <div class="container">
+            <div class="inner-bottom-sign">
+                <div class="author-sign">
+                    ©2023 Developed by <a href="https://vk.com/jaldaba0th" target="_blank">Александр Кулаков</a>
+                </div>
+                <div class="rights-sign">
+                    Права на логотип принадлежат команде ВКонтакте
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

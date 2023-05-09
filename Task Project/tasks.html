@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script src="js/table.js"></script>
+
+    
+    <title>Список задач</title>
+</head>
+<body>
+
+  
+
+    <nav class="navbar navbar-expand-lg fixed-top ">
+        <a class="navbar-brand" href="index.html">
+            <div class="menu-title">
+            <img class="vk-name" src="img/VK_Monochrome_Compact_Logo.png">
+            <div class="page-name"><p>задачник</p></div>
+        </div>
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon fa fa-bars" area-hidden="true"></span>
+        </button>
+     <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav mr-4">
+            
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="#" style="border-bottom: 2px solid rgb(120, 120, 120); color:rgb(120, 120, 120);">Задания</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="rankings.html">Рейтинг</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-login-link" href="login.html">Вход</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-reg-link" href="reg.html">Регистрация</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="profile.html" style="display: none;">Профиль</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="exit.html" style="display: none;">Выход</a>
+              </li>
+          </ul>
+        </div>
+     </nav>
+     <!--Модальное окно с добавлением задания-->
+     <div class="modal">
+      <div class="modal__content">
+        <button class="modal__close-button">x</button>
+        <form>
+          <div class="form-group">
+              <label for="name">Название</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Введите название...">
+          </div>
+          <div class="form-group">
+              <label for="desc">Описание</label>
+              <textarea type="text" style="height: 200px" class="form-control" id="desc" name="desc" placeholder="Опишите задачу..."></textarea>
+          </div>
+          <div class="form-group">
+              <label for="categorySelect">Категория:</label>
+              <select id="categorySelect">
+
+                  <option value=”1” name="firstCategory">1</option>
+                  
+                  <option value=”2” name="secondCategory">2</option>
+                  <option value=”3” name="thirdCategory">3</option>
+                  </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Опубликовать</button>
+          
+  </form>
+
+      </div>
+   </div>
+
+    <div class="main-body">
+        <div class="container">
+            <div class="tab-view-body">
+                <h1 class="desc-header">Список задач</h1>
+                <div class="tasks-list">
+                <div class="tab">
+                    <button class="buttonLink active" onclick="openCategory(event, 'availableTasks')">Доступные задачи</button>
+                    <button class="buttonLink" onclick="openCategory(event, 'myTasks')">Мои задачи</button>
+                    <button class="buttonLink" onclick="openCategory(event, 'myHistory')">Моя история</button>
+                  </div>
+                  <div id="availableTasks" class="tabcontent" style="display: block">
+
+                    <div class="access-tasks-title">
+                      <span class="tab-title">Доступные задачи</span>
+                      <a id="callback-button" class="button-page">Добавить задание</a>
+                    </div>
+
+                    <div class="task-block">
+                      <div class="task-header">
+                        <p class="task-title" style="margin-bottom: 20px">Задача: Проверить закрытость сетей</p>
+                        <p class="task-date" style="margin-bottom: 20px">Дата: 06.05.2023 15:49</p>
+                      </div>
+                      <div class="task-info">
+                        <p class="task-category" style="margin-bottom: 20px">Категория: 1</p>
+                        <p class="task-status" style="margin-bottom: 20px">Статус: Доступно</p>
+                        <p class="task-desc">Описание задачи: Проверить целостность кабелей на 5 этаже, а также защиту сети от проникновения.
+                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi at officia nesciunt ea nobis unde, voluptas totam sit explicabo deleniti maiores? 
+                          Architecto quaerat sunt dignissimos pariatur corporis, dolore excepturi magnam?
+                        </p>
+                      </div>
+                        <div class="task-bottom">
+                          <span class="task-author">Автор: Евгений Пригожин</span><a id="task-take-button" class="button-page">Взять задание</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  <div id="myTasks" class="tabcontent">
+                  <div class="access-tasks-title">
+                    <span class="tab-title">Мои задачи</span>
+                  </div>
+
+                    <div class="task-block">
+                      <div class="task-header">
+                        <p class="task-title" style="margin-bottom: 20px">Задача: Проверить закрытость сетей</p>
+                        <p class="task-date" style="margin-bottom: 20px">Дата: 06.05.2023 15:49</p>
+                      </div>
+                      <div class="task-info" style="margin-bottom: 20px">
+                        <p class="task-category" style="margin-bottom: 20px">Категория: Сетевая безопасность</p>
+                        <p class="task-status" style="margin-bottom: 20px">Статус: Доступно</p>
+                        <p class="task-desc">Описание задачи: Проверить целостность кабелей на 5 этаже, а также защиту сети от проникновения.
+                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi at officia nesciunt ea nobis unde, voluptas totam sit explicabo deleniti maiores? 
+                          Architecto quaerat sunt dignissimos pariatur corporis, dolore excepturi magnam?
+                        </p>
+                      </div>
+                        <div class="task-bottom">
+                          <span class="task-diff">Сложность задачи: 2</span>
+                          <span class="task-author">Автор: Вова путин7</span>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  <div id="myHistory" class="tabcontent">
+                    <div class="access-tasks-title">
+                      <span class="tab-title">Моя история</span>
+                    </div>
+
+                    <p>Ожидание задач...</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-sign">
+        <div class="container">
+            <div class="inner-bottom-sign">
+                <div class="author-sign">
+                    ©2023 Developed by <a href="https://vk.com/jaldaba0th" target="_blank">Александр Кулаков</a>
+                </div>
+                <div class="rights-sign">
+                    Права на логотип принадлежат команде ВКонтакте
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+</body>
+</html>
