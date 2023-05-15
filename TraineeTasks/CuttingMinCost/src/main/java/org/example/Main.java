@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 public class Main
 {
+    /**
+     * Главный метод main
+     * @param args
+     */
     public static void main(String[] args) {
         ArrayList<Integer> l = new ArrayList<>();
         ArrayList<Integer> n = new ArrayList<>();
@@ -14,24 +18,30 @@ public class Main
         dataInput(l, n, c);
 
         for(int item : l){
-            System.out.println("Минимальная стоимость: " + getMinCost(c.get(l.indexOf(item)), item));
+            System.out.println("Minimal cutting cost: " + getMinCost(c.get(l.indexOf(item)), item));
         }
     }
+
+    /**
+     * Получить минимальную стоимость
+     * @param cuts - Список расстояний разрезов
+     * @param length - Длина бруска
+     * @return - Минимальная цена разрезов
+     */
     public static int getMinCost(int[] cuts, int length) {
         int n = cuts.length;
-        int[] arr = new int[n+2]; // массив отметок + начало и конец бруса
+        int[] arr = new int[n+2];
         System.arraycopy(cuts, 0, arr, 1, n);
         arr[0] = 0;
         arr[n+1] = length;
         n += 2;
 
-        // dp[i][j] - минимальная стоимость распила отметок i...j
         int[][] dp = new int[n][n];
 
-        for (int len = 2; len <= n; len++) { // длина текущего отрезка
-            for (int i = 0; i + len < n; i++) { // начало текущего отрезка
-                int j = i + len; // конец текущего отрезка
-                dp[i][j] = Integer.MAX_VALUE; // начинаем с очень большого значения
+        for (int len = 2; len <= n; len++) {
+            for (int i = 0; i + len < n; i++) {
+                int j = i + len;
+                dp[i][j] = Integer.MAX_VALUE;
 
                 for (int k = i+1; k < j; k++) {
                     dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k][j] + arr[j] - arr[i]);
@@ -41,6 +51,13 @@ public class Main
 
         return dp[0][n-1];
     }
+
+    /**
+     * Ввод данных
+     * @param l_list - Список длин брусков
+     * @param n_list - Список количеств разрезов
+     * @param c_list - Список разрезов
+     */
     public static void dataInput(ArrayList<Integer> l_list, ArrayList<Integer> n_list, ArrayList<int[]> c_list) {
 
         int l, n;

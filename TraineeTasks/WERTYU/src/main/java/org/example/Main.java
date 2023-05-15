@@ -25,21 +25,28 @@ public class Main {
         ArrayList<String> list = scanSting();
         System.out.println("Result: ");
         for(String item : list) {
-            char[] input = item.toCharArray();
-
-            for (int i = 0; i < input.length; i++)
-                for (int j = 0; j < lowerCase.length; j++)
-                    if (input[i] != 'Q' && input[i] != 'A' && input[i] != 'Z'
-                            && input[i] != 'q' && input[i] != 'a' && input[i] != 'z') {
-                        if (input[i] == upperCase[j])
-                            input[i] = upperCase[j - 1];
-                        if (input[i] == lowerCase[j])
-                            input[i] = lowerCase[j - 1];
-                    }
-            System.out.println(input);
+            deEncryption(item);
         }
     }
 
+    /**
+     * Функция расшифровки сообщения
+     * @param string
+     */
+    public static void deEncryption(String string){
+        char[] input = string.toCharArray();
+
+        for (int i = 0; i < input.length; i++)
+            for (int j = 0; j < lowerCase.length; j++)
+                if (input[i] != 'Q' && input[i] != 'A' && input[i] != 'Z'
+                        && input[i] != 'q' && input[i] != 'a' && input[i] != 'z') {
+                    if (input[i] == upperCase[j])
+                        input[i] = upperCase[j - 1];
+                    if (input[i] == lowerCase[j])
+                        input[i] = lowerCase[j - 1];
+                }
+        System.out.println(input);
+    }
     /**
      * Ввод строк для изменения
      * @return Список введенных строк

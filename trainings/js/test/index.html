@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Заголовок</h2>
+        <div class="content">
+
+            <ul class="list">
+
+                <li class="item">Пункт 1</li>
+                <li class="item">Пункт 2</li>
+
+            </ul>
+
+        </div>
+
+    <script>
+
+        // let element = document.getElementById('element');
+        // element.style.background='tomato'
+        // let elements = document.querySelectorAll('ul li:first-child');
+        // for(let element of elements){
+        //     element.style.color = "gray";
+        //     element.innerHTML = 'Новое значение'
+        // }
+
+        // let element = document.querySelector('ul li')
+        // element.innerHTML = "<a href='#'>Ссылка</a>"
+        // for(let element of document.body.children){
+        //     if(element.matches('a[href$=".ru"]')){
+        //         console.log("Yes")
+        //         element.innerHTML = "Сайт в зоне .ru"
+        //     }
+        // }
+        // for(let element of document.querySelectorAll('a[href$=".ru"]')){
+        //         console.log("Yes")
+        //         element.innerHTML = "Сайт в зоне .ru"
+        // }
+        
+            let item = document.querySelector('.item')
+            if(item.closest('h2')!==null){
+                console.log(item.closest(".list"));
+            }
+        
+
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

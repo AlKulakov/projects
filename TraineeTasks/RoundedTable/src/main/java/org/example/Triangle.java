@@ -30,6 +30,10 @@ public class Triangle {
         this.c = c;
     }
 
+    /**
+     * Функция нахождения радиуса
+     * @return - Радиус вписанной окружности
+     */
     public double findRadius(){
         double P2 = (a+b+c)/2;
         double S = sqrt(P2*(P2-a)*(P2-b)*(P2-c));

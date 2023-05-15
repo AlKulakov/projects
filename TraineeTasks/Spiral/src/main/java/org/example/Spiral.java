@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Spiral {
+    /**
+     * Координаты пути по спирали
+     * @param length - Длина пути
+     * @return - Объект класса координат
+     */
     public Point getPointsInSpiral(int length) {
         int x = 0;
         int y = 0;
@@ -12,7 +17,6 @@ public class Spiral {
 
         for (int i = 0; i < length-1; i++) {
             switch (direction) {
-                //Движение вправо
                 case 0:
                     x++;
                     if (x == size) {
@@ -20,7 +24,6 @@ public class Spiral {
                         direction = 1;
                     }
                     break;
-                    //Движение вверх
                 case 1:
                     y++;
                     if(y>1)
@@ -29,14 +32,12 @@ public class Spiral {
                         direction = 2;
                     }
                     break;
-                    //движение влево
                 case 2:
                     x--;
                     if (-x == size) {
                         direction = 3;
                     }
                     break;
-                    //движение вниз
                 case 3:
                     y--;
                     if(y<0){

@@ -18,30 +18,38 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        TreeSet<Double> set = new TreeSet<>();
+
         ArrayList<ArrayList<Point>> list = scanPoints();
 
-        for(ArrayList<Point> item : list) {
+        for (ArrayList<Point> item : list) {
 
-            for (int i = 0; i < item.size(); i++)
-
-                for (int j = item.size()-1; j > 0; j--){
-
-                    if (i != j) {
-                        set.add(sqrt(pow(item.get(i).getX() - item.get(j).getX(), 2) + pow(item.get(i).getY() - item.get(j).getY(), 2)));
-                    }
-                }
-
-            if (set.first() >= 10000) {
-                System.out.println("INFINITY");
-            } else
-                System.out.println(round(set.first(), 4));
-            set.clear();
+            findClosestLength(item);
 
         }
-
-
     }
+
+    /**
+     * Найти ближайшее расстояние из всех точек.
+     * @param points - Список объектов точек
+     */
+    public static void findClosestLength(ArrayList<Point> points){
+        TreeSet<Double> lengthSet = new TreeSet<>();
+        for (int i = 0; i < points.size(); i++)
+
+            for (int j = points.size() - 1; j > 0; j--) {
+
+                if (i != j) {
+                    lengthSet.add(sqrt(pow(points.get(i).getX() - points.get(j).getX(), 2) + pow(points.get(i).getY() - points.get(j).getY(), 2)));
+                }
+            }
+
+        if (lengthSet.first() >= 10000) {
+            System.out.println("INFINITY");
+        } else
+            System.out.println(round(lengthSet.first(), 4));
+        lengthSet.clear();
+    }
+
 
     /**
      * Округление
