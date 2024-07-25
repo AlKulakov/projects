@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    
+}
+body {
+    margin: 0;
+    height: 100%;
+
+}
+
+.container{
+    width: 1170px;
+    height: 100%;
+    margin: 300px auto;
+
+}
+button{
+
+    height: 50px;
+    width: 50px;
+    font-size: 14px;
+
+}
+
+.inner-menu {
+    margin: auto;
+    width: 250px;
+    border: solid;
+    justify-content: space-around;
+    display: block;
+    border-radius: 5%;
+    background-color: rgb(212, 241, 241);
+}
+.field {
+    font-size: 36px;
+    color: rgb(3, 3, 3);
+    border-bottom: solid;
+    margin-inline: 10px;
+}
+.buttons {
+    padding: 10px;
+}
+#do {
+    background-color: green;
+    color: white;
+}
+#cancel {
+    background-color: rgb(233, 30, 30);
+    color: white;
+}
+button:hover {
+    border-color: gray;
+    color: gray;
+}
