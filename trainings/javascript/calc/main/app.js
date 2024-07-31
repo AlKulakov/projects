@@ -47,6 +47,7 @@ for(let i = 0; i < number.length; i++){
         setResult()
     }
 }
+
 const cancel = document.getElementById('cancel')
 
 cancel.onclick = function(){

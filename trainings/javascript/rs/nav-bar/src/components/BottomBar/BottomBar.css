@@ -1,0 +1,12 @@
+.bottomBar {
+    height: 250px;
+    background-color: rgb(60, 68, 66);
+    width: 100%;
+    margin-top: auto;
+    color: rgb(202, 202, 202);
+    box-shadow: 0px 10px 10px 10px rgba(34, 60, 80, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+}
