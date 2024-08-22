@@ -1,0 +1,61 @@
+.about-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.aboutField {
+    color: #fff;
+    opacity: 0.9;
+    margin: 80px auto;
+    width: 900px;
+}
+.myPhoto2 {
+    height: 370px;
+    border-radius: 30px;
+    margin-right: 50px;
+    border: solid 2px rgba(35,35,35,255);
+}
+
+.content-title {
+    background-color: rgba(35,35,35,255);
+    color: #fff;
+    height: 100px;
+    padding: 0 20px 0 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.nameTitle {
+    margin: auto 0;
+    padding: 20px;
+    font-size: 2rem;
+}
+.comps {
+    color: rgb(0, 151, 252);
+    width: 100px;
+    margin: auto 0;
+    font-weight: bold;
+}
+
+.aboutInfo {
+    background-color: rgba(35,35,35,255);
+    border-radius: 20px;
+    padding: 20px 40px 20px 40px;
+    line-height: 2rem;
+    margin: auto 0;
+}
+.aboutInfo ul li::marker {
+    content: '✓    ';
+    color: rgb(0, 151, 252);
+  }
+
+.about-bottom {
+    background-color: rgba(35,35,35,255);
+    border-radius: 20px;
+    padding: 20px 40px 20px 40px;
+    line-height: 2rem;
+    margin:  0 auto;
+    margin-top: 100px;
+}
